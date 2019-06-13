@@ -46,7 +46,7 @@ var speedrun = (function () {
 
   function renderStreams() {
     var template = `
-    <table class='table is-narrow'>
+    <table class='table is-narrow is-striped'>
       <thead>
         <tr>
           <th>Name</th>
