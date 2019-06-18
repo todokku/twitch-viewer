@@ -1,5 +1,5 @@
 var users = (function () {
-  var user = {test:"asdf"};
+  var user = {};
 
   function init() {
     cacheDom();
@@ -71,23 +71,6 @@ var users = (function () {
 
     $("#target").html(template);
   };
-
-  function makeTemplate(data){
-    let baseUrl = "https://www.twitch.tv/"
-    let newList = '';
-    data.forEach(function(object){
-      newList += `<tr>
-                  <td>
-                    <a href="${baseUrl + object.user_name}">
-                      ${object.user_name}
-                    </a>
-                  </td>
-                  <td>${object.title}</td>
-                  <td>${object.viewer_count}</td>
-                  </tr>`
-    });
-    return newList;
-  }
 
   return {
     init: init
