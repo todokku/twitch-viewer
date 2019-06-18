@@ -83,20 +83,22 @@ var following = (function () {
 
   function cacheLiveDom(){
     $liveCheckBoxes = $(".live-stream-checkbox");
-    $multiTwitchButton = $("#createMultiTwitchLink");
+    $createLinksButton = $("#createLinksButton");
     $multiTwitchLinkInput = $("#multiTwitchLink");
     $copyMultiTwitchLink = $("#copyMultiTwitchLink");
   }
 
   function bindLiveEvents() {
-    $multiTwitchButton.on("click", handleMultiTwitchButtonClick);
+    $createLinksButton.on("click", handleCreateLinksButtonClick);
     $copyMultiTwitchLink.on("click", copyMultiTwitchLink);
   }
 
-  function handleMultiTwitchButtonClick(evt){
+  function handleCreateLinksButtonClick(evt){
     var selectedChannels = getSelectedChannels();
     var multiTwitchLink = `http://www.multitwitch.tv/${selectedChannels.join('/')}`;
     $multiTwitchLinkInput.val(multiTwitchLink);
+
+    renderChatLinks();
   }
 
   function copyMultiTwitchLink(){
@@ -173,15 +175,20 @@ var following = (function () {
       </tbody>
     </table>
 
-    <div class="field is-grouped">
-    <div class="control">
-      <button class="button is-link" id="createMultiTwitchLink">Create MultiTwitch Link</button>
+    <div class="field">
+      <div class="control">
+        <button class="button is-link" id="createLinksButton">Create Links</button>
+      </div>
     </div>
-    <div class="control">
-      <input type="text" class="input" id="multiTwitchLink"/>
-    </div>
-    <div class="control">
-      <a href="#" id="copyMultiTwitchLink">Copy</a>
+
+    <div class="field">
+      <label class="label">MultiTwitch</label>
+      <div class="control">
+        <input type="text" class="input" id="multiTwitchLink"/>
+      </div>
+      <div class="control">
+        <a href="#" id="copyMultiTwitchLink">Copy</a>
+      </div>
     </div>
     `;
 
@@ -210,6 +217,36 @@ var following = (function () {
                   </label>
                   </td>
                   </tr>`
+    });
+    return newList;
+  }
+
+  function renderChatLinks(){
+    var template = `
+      <div class="field">
+        <label class="label">Chat Links</label>
+        <div class="control">
+          ${makeChatLinksTemplate(getSelectedChannels())}
+        </div>
+      </div>
+    `;
+
+    $("#live-chat-links").html(template);
+  }
+
+  function makeChatLinksTemplate(data){
+    console.log(data);
+    let newList = '';
+    data.forEach(function(name){
+      newList += `
+      <div class="field is-grouped">
+        <input
+          class="input"
+          type="text"
+          value="https://www.twitch.tv/popout/${name}/chat?darkpopout"
+        />
+      </div>
+      `
     });
     return newList;
   }
