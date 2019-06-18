@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Speedruns</title>
+  <title>Users</title>
 
    <link rel="stylesheet" href="bulma-0.7.5/css/bulma.min.css">
    <link rel="stylesheet" href="css/styles.css">
@@ -33,10 +33,22 @@
 
   <section class="section>">
     <div class="container">
-      <h1 class="title">Speedrun Streams</h1>
-      <div id="target"></div>
-      <button id="back-button" class="button">Back</button>
-      <button id="next-button" class="button">Next</button>
+      <h1 class="title">User Lookup</h1>
+        <form id="form">
+          <div class="field is-grouped">
+            <div class="control">
+              <input class="input" type="text" id="usernameInput" placeholder="Username">
+            </div>
+            <div class="control">
+              <input type="submit" class="button is-link" value="Find User"/>
+            </div>
+          </div>
+        </form>
+      <div class="columns">
+        <div class="column is-one-third-desktop">
+          <div id="target"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -45,9 +57,9 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-  <script src="js/speedrun.js"></script>
+  <script src="js/users.js"></script>
   <script>
-    speedrun.init();
+    users.init();
   </script>
 </body>
 </html>
