@@ -23,8 +23,16 @@ var following = (function () {
 
   function handleSearchFormSubmit(evt){
     evt.preventDefault();
+    resetData();
     user_id = $userIdInput.val();
     fetchFollowedChannels(user_id, "");
+  }
+
+  function resetData(){
+    followed_channels = [];
+    live_streams = [];
+    followed_count = 0;
+    user_id = 0;
   }
 
   function fetchFollowedChannels(id, additionalParams) {
