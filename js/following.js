@@ -50,7 +50,6 @@ var following = (function () {
         fetchFollowedChannels(id, params);
       }
       else {
-        //renderFollowed();
         fetchLiveStreams();
       }
 
@@ -77,6 +76,7 @@ var following = (function () {
       bindLiveEvents();
     })
     .fail(function(response) {
+      console.log(response);
       alert( "error" );
     });
   }
