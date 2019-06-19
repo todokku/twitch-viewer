@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Building your new static site!\""
+    "build": "netlify-lambda build functions",
+    "serve": "netlify-lambda serve functions"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "netlify-lambda": "^1.4.13",
+    "node-fetch": "^2.6.0"
+  }
 }
