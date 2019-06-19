@@ -28,7 +28,7 @@ exports.handler = async (event) => {
       {
         headers: {
           'content-type': 'application/json',
-          'Client-ID': 'y7uxb2z0n44qqypemc79gaw0w35w0i'
+          'Client-ID': TWITCH_CLIENT_ID
         }
       }
     )
