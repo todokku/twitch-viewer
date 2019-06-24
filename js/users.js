@@ -22,10 +22,10 @@ var users = (function () {
   }
 
   function fetchUserData(login) {
-    var url = `https://api.twitch.tv/helix/users?login=${login}`;
+    //var url = `https://focused-panini-8b3c49.netlify.com/.netlify/functions/users?name=${login}`;
+    var url = `${API_BASE_URL}/users?name=${login}`;
     $.ajax({
-      url: url,
-      headers: { "Client-ID": "y7uxb2z0n44qqypemc79gaw0w35w0i" }
+      url: url
     })
     .done(function(response) {
       user = response.data[0];
@@ -76,3 +76,5 @@ var users = (function () {
     init: init
   }
 })()
+
+users.init();

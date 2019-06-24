@@ -33,7 +33,15 @@ exports.handler = async (event) => {
       }
     )
     const userData = await response.text();
-    return { statusCode: 200, body: userData };
+    return {
+      statusCode: 200,
+      body: userData,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Headers": "Content-Type",
+        'content-type': 'application/json'
+      }
+    };
   }
 
   return { statusCode: 404 };
