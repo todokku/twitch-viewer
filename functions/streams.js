@@ -6,7 +6,8 @@ const {
 } = process.env;
 
 const getApiUrl = (user_query_string) => {
-  let users = user_query_string.join("&user_login=");
+  var args = [].splice.call(user_query_string,0);
+  let users = args.join("&user_login=");
   let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
 
   return url;
