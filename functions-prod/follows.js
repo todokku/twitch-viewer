@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./users.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./follows.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1862,10 +1862,10 @@ fetch.Promise = global.Promise;
 
 /***/ }),
 
-/***/ "./users.js":
-/*!******************!*\
-  !*** ./users.js ***!
-  \******************/
+/***/ "./follows.js":
+/*!********************!*\
+  !*** ./follows.js ***!
+  \********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1880,12 +1880,20 @@ const {
   TWITCH_CLIENT_ID
 } = process.env;
 
-const getApiUrl = (login, id) => {
-  if (login) {
-    return `https://api.twitch.tv/helix/users?login=${login}`;
-  } else {
-    return `https://api.twitch.tv/helix/users?id=${id}`;
+const getApiUrl = (from_id, pagination_cursor) => {
+  var url = `https://api.twitch.tv/helix/users/follows?`;
+
+  if (from_id) {
+    url += `from_id=${from_id}`;
   }
+
+  ;
+
+  if (pagination_cursor) {
+    url += `&after=${pagination_cursor}`;
+  }
+
+  return url;
 };
 
 exports.handler = async event => {
@@ -1895,9 +1903,10 @@ exports.handler = async event => {
   } = event;
 
   if (httpMethod === 'GET') {
-    const login = event.queryStringParameters.name;
-    const id = event.queryStringParameters.id;
-    const apiUrl = getApiUrl(login, id);
+    const from_id = event.queryStringParameters.from_id;
+    const pagination_cursor = event.queryStringParameters.pagination_cursor;
+    const apiUrl = getApiUrl(from_id, pagination_cursor);
+    console.log(apiUrl);
     const response = await Object(node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
       headers: {
         'content-type': 'application/json',
