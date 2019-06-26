@@ -6,9 +6,11 @@ const {
 } = process.env;
 
 const getApiUrl = (user_query_string) => {
-  var args = [].splice.call(user_query_string,0);
-  let users = args.join("&user_login=");
-  let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
+  //var args = [].splice.call(user_query_string,0);
+  //let users = args.join("&user_login=");
+  //let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
+
+  let url = `https://api.twitch.tv/helix/streams?user_login=billbull`;
 
   return url;
 };
