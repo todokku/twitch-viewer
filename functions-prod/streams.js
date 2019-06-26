@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./users.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./streams.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1862,10 +1862,10 @@ fetch.Promise = global.Promise;
 
 /***/ }),
 
-/***/ "./users.js":
-/*!******************!*\
-  !*** ./users.js ***!
-  \******************/
+/***/ "./streams.js":
+/*!********************!*\
+  !*** ./streams.js ***!
+  \********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1880,12 +1880,10 @@ const {
   TWITCH_CLIENT_ID
 } = process.env;
 
-const getApiUrl = (login, id) => {
-  if (login) {
-    return `https://api.twitch.tv/helix/users?login=${login}`;
-  } else {
-    return `https://api.twitch.tv/helix/users?id=${id}`;
-  }
+const getApiUrl = user_query_string => {
+  let users = user_query_string.join("&user_login=");
+  let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
+  return url;
 };
 
 exports.handler = async event => {
@@ -1895,9 +1893,8 @@ exports.handler = async event => {
   } = event;
 
   if (httpMethod === 'GET') {
-    const login = event.queryStringParameters.name;
-    const id = event.queryStringParameters.id;
-    const apiUrl = getApiUrl(login, id);
+    const user_login = event.queryStringParameters.user_login;
+    const apiUrl = getApiUrl(user_login);
     const response = await Object(node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
       headers: {
         'content-type': 'application/json',

@@ -1,4 +1,4 @@
-var following = (function () {
+var follows = (function () {
   var followed_channels = [];
   var live_streams = [];
   var followed_count = 0;
@@ -35,19 +35,22 @@ var following = (function () {
     user_id = 0;
   }
 
-  function fetchFollowedChannels(id, additionalParams) {
-    var url = `https://api.twitch.tv/helix/users/follows?from_id=${id}${additionalParams}`;
+  function fetchFollowedChannels(id, after) {
+    var url = `${API_BASE_URL}/follows?from_id=${id}`;
+
+    if(after) {
+      url += `&after=${after}`;
+    }
+
     $.ajax({
       url: url,
-      headers: { "Client-ID": "y7uxb2z0n44qqypemc79gaw0w35w0i" }
     })
     .done(function(response) {
       followed_channels = [...followed_channels, ...response.data];
 
       if(response.data.length == 20) {
         var pagination_cursor = response.pagination.cursor;
-        var params = `&after=${pagination_cursor}`;
-        fetchFollowedChannels(id, params);
+        fetchFollowedChannels(id, pagination_cursor);
       }
       else {
         fetchLiveStreams();
@@ -63,14 +66,14 @@ var following = (function () {
   function fetchLiveStreams(){
     var user_logins = followed_channels.map(x => x.to_name);
     var user_query_string = user_logins.join("&user_login=");
-    var url = `https://api.twitch.tv/helix/streams?user_login=${user_query_string}`;
+    var url = `${API_BASE_URL}/streams?user_login=${user_query_string}`;
 
     $.ajax({
-      url: url,
-      headers: { "Client-ID": "y7uxb2z0n44qqypemc79gaw0w35w0i" }
+      url: url
     })
     .done(function(response) {
       live_streams = response.data;
+
       renderLive();
       cacheLiveDom();
       bindLiveEvents();
@@ -84,26 +87,19 @@ var following = (function () {
   function cacheLiveDom(){
     $liveCheckBoxes = $(".live-stream-checkbox");
     $createLinksButton = $("#createLinksButton");
-    $multiTwitchLinkInput = $("#multiTwitchLink");
-    $copyMultiTwitchLink = $("#copyMultiTwitchLink");
+    $multiTwitchLink = $("#multiTwitchLink");
   }
 
   function bindLiveEvents() {
     $createLinksButton.on("click", handleCreateLinksButtonClick);
-    $copyMultiTwitchLink.on("click", copyMultiTwitchLink);
   }
 
   function handleCreateLinksButtonClick(evt){
     var selectedChannels = getSelectedChannels();
     var multiTwitchLink = `http://www.multitwitch.tv/${selectedChannels.join('/')}`;
-    $multiTwitchLinkInput.val(multiTwitchLink);
+    $multiTwitchLink.attr('href', multiTwitchLink);
 
     renderChatLinks();
-  }
-
-  function copyMultiTwitchLink(){
-    $multiTwitchLinkInput.select();
-    document.execCommand("copy");
   }
 
   function getSelectedChannels()
@@ -184,10 +180,7 @@ var following = (function () {
     <div class="field">
       <label class="label">MultiTwitch</label>
       <div class="control">
-        <input type="text" class="input" id="multiTwitchLink"/>
-      </div>
-      <div class="control">
-        <a href="#" id="copyMultiTwitchLink">Copy</a>
+        <a id="multiTwitchLink">MultiTwitch Link</a>
       </div>
     </div>
     `;
@@ -240,11 +233,11 @@ var following = (function () {
     data.forEach(function(name){
       newList += `
       <div class="field is-grouped">
-        <input
-          class="input"
-          type="text"
-          value="https://www.twitch.tv/popout/${name}/chat?darkpopout"
-        />
+        <a
+          href="https://www.twitch.tv/popout/${name}/chat?darkpopout"
+        >
+          ${name}
+        </a>
       </div>
       `
     });
@@ -255,3 +248,5 @@ var following = (function () {
     init: init
   }
 })()
+
+follows.init();

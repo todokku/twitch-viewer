@@ -22,7 +22,6 @@ var users = (function () {
   }
 
   function fetchUserData(login) {
-    //var url = `https://focused-panini-8b3c49.netlify.com/.netlify/functions/users?name=${login}`;
     var url = `${API_BASE_URL}/users?name=${login}`;
     $.ajax({
       url: url
@@ -43,7 +42,7 @@ var users = (function () {
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img src="${user.profile_image_url}" alt="Placeholder image">
+                <img src="${user.profile_image_url}" alt="Placeholder image" style="border-radius: 50%;">
               </figure>
             </div>
             <div class="media-content">

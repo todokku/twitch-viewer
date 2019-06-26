@@ -6,7 +6,8 @@ const path = require('path');
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   entry: {
-    users: "./src/js/users.js"
+    users: "./src/js/users.js",
+    follows: "./src/js/follows.js"
   },
   output: {
     filename: '[name].js',

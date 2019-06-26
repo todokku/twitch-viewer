@@ -5,16 +5,9 @@ const {
   TWITCH_CLIENT_ID
 } = process.env;
 
-const getApiUrl = (from_id, after) => {
-  var url = `https://api.twitch.tv/helix/users/follows?`;
-
-  if(from_id){
-    url += `from_id=${from_id}`;
-  };
-
-  if(after){
-    url += `&after=${after}`;
-  }
+const getApiUrl = (user_query_string) => {
+  let users = user_query_string.join("&user_login=");
+  let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
 
   return url;
 };
@@ -24,9 +17,8 @@ exports.handler = async (event) => {
   const { httpMethod } = event;
 
   if (httpMethod === 'GET') {
-    const from_id = event.queryStringParameters.from_id;
-    const after = event.queryStringParameters.after;
-    const apiUrl = getApiUrl(from_id, after);
+    const user_login = event.queryStringParameters.user_login;
+    const apiUrl = getApiUrl(user_login);
 
     const response = await fetch(
       apiUrl,

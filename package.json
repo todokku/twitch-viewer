@@ -19,7 +19,7 @@
     "lambda-serve": "netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions",
     "build": "SET NODE_ENV=production& webpack& npm run lambda-build",
-    "dev": "SET NODE_ENV=development& concurrently \"webpack-dev-server --content-base src/\" \"npm run lambda-serve\""
+    "dev": "SET NODE_ENV=development& webpack& concurrently \"webpack-dev-server --content-base public/\" \"npm run lambda-serve\""
   },
   "author": "",
   "license": "ISC"
