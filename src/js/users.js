@@ -1,1 +1,80 @@
-!function(n){var t={};function e(r){if(t[r])return t[r].exports;var i=t[r]={i:r,l:!1,exports:{}};return n[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{enumerable:!0,get:r})},e.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},e.t=function(n,t){if(1&t&&(n=e(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var i in n)e.d(r,i,function(t){return n[t]}.bind(null,i));return r},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},e.p="",e(e.s=0)}([function(n,t){(function(){var n={};function t(t){t.preventDefault(),function(t){var e=`http://localhost:9000/users?name=${t}`;$.ajax({url:e}).done(function(t){var e;n=t.data[0],e=`\n      <div class="card">\n        <div class="card-content">\n          <div class="media">\n            <div class="media-left">\n              <figure class="image is-48x48">\n                <img src="${n.profile_image_url}" alt="Placeholder image">\n              </figure>\n            </div>\n            <div class="media-content">\n              <p class="title is-4">${n.display_name}</p>\n            </div>\n          </div>\n\n          <div class="content">\n            <table>\n              <tbody>\n                <tr>\n                  <td class="has-text-weight-bold">ID</td>\n                  <td>${n.id}</td>\n                </tr>\n                <tr>\n                  <td class="has-text-weight-bold">View Count</td>\n                  <td>${n.view_count}</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    `,$("#target").html(e)}).fail(function(){alert("error")})}($usernameInput.val())}return{init:function(){$searchForm=$("#form"),$usernameInput=$("#usernameInput"),$searchForm.on("submit",t)}}})().init()}]);
+var users = (function () {
+  var user = {};
+
+  function init() {
+    cacheDom();
+    bindEvents();
+  };
+
+  function cacheDom() {
+    $searchForm = $("#form");
+    $usernameInput = $("#usernameInput");
+  };
+
+  function bindEvents(){
+    $searchForm.on("submit", handleSearchFormSubmit);
+  };
+
+  function handleSearchFormSubmit(evt){
+    evt.preventDefault();
+    var login = $usernameInput.val();
+    fetchUserData(login);
+  }
+
+  function fetchUserData(login) {
+    //var url = `https://focused-panini-8b3c49.netlify.com/.netlify/functions/users?name=${login}`;
+    var url = `${API_BASE_URL}/users?name=${login}`;
+    $.ajax({
+      url: url
+    })
+    .done(function(response) {
+      user = response.data[0];
+      render();
+    })
+    .fail(function() {
+      alert( "error" );
+    });
+  };
+
+  function render() {
+    var template = `
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="${user.profile_image_url}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">${user.display_name}</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="has-text-weight-bold">ID</td>
+                  <td>${user.id}</td>
+                </tr>
+                <tr>
+                  <td class="has-text-weight-bold">View Count</td>
+                  <td>${user.view_count}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    `;
+
+    $("#target").html(template);
+  };
+
+  return {
+    init: init
+  }
+})()
+
+users.init();

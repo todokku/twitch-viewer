@@ -6,11 +6,11 @@ const path = require('path');
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   entry: {
-    users: "./js/users.js"
+    users: "./src/js/users.js"
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, './src/js'),
+    path: path.resolve(__dirname, './public/js'),
    },
   plugins: [
     new webpack.DefinePlugin({
