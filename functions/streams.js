@@ -22,6 +22,17 @@ exports.handler = async (event) => {
 
   if (httpMethod === 'GET') {
     const user_login = event.queryStringParameters.user_login;
+
+    return {
+      statusCode: 200,
+      body: user_login,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Headers": "Content-Type",
+        'content-type': 'application/json'
+      }
+    }
+
     const apiUrl = getApiUrl(user_login);
 
     const response = await fetch(
