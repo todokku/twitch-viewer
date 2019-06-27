@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
     )
 
    const userData = await response.text();
-
+   console.log(userData);
    return {
       statusCode: 200,
       body: userData,
