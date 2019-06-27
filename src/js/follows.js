@@ -72,6 +72,11 @@ var follows = (function () {
       url: url
     })
     .done(function(response) {
+
+      if(typeof(response) == "string"){
+        response = JSON.parse(response);
+      }
+      
       live_streams = response.data;
 
       renderLive();
