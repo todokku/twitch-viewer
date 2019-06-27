@@ -72,11 +72,11 @@ var follows = (function () {
       url: url
     })
     .done(function(response) {
+      console.log(response);
+      // if(typeof(response) == "string"){
+      //   response = JSON.parse(response);
+      // }
 
-      if(typeof(response) == "string"){
-        response = JSON.parse(response);
-      }
-      
       live_streams = response.data;
 
       renderLive();
