@@ -1880,40 +1880,35 @@ const {
   TWITCH_CLIENT_ID
 } = process.env;
 
-const getApiUrl = user_query_string => {
-  let users = user_query_string.join("&user_login=");
-  let url = `https://api.twitch.tv/helix/streams?user_login=${users}`; //let url = `https://api.twitch.tv/helix/streams?user_login=billbull`;
+const getApiUrl = user_login => {
+  //netlify in production doesn't auto-parse parameters
+  if (typeof user_login == "string") {
+    user_login = JSON.parse(user_login);
+  }
 
+  let users = user_login.join("&user_login=");
+  let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
   return url;
 };
 
 exports.handler = async event => {
-  // We can retrive type of http method in event parameter
   const {
     httpMethod
   } = event;
 
   if (httpMethod === 'GET') {
-    const user_login = event.queryStringParameters.user_login; //const apiUrl = getApiUrl(user_login);
-    // const response = await fetch(
-    //   apiUrl,
-    //   {
-    //     headers: {
-    //       'content-type': 'application/json',
-    //       'Client-ID': TWITCH_CLIENT_ID
-    //     }
-    //   }
-    // )
-    //const userData = await response.text();
-
-    const body = {
-      data: user_login,
-      type: typeof user_login
-    };
+    const user_login = event.queryStringParameters.user_login;
+    const apiUrl = getApiUrl(user_login);
+    const response = await Object(node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
+      headers: {
+        'content-type': 'application/json',
+        'Client-ID': TWITCH_CLIENT_ID
+      }
+    });
+    const userData = await response.text();
     return {
       statusCode: 200,
-      body: JSON.stringify(body),
-      //userData,
+      body: userData,
       headers: {
         'Access-Control-Allow-Origin': '*',
         "Access-Control-Allow-Headers": "Content-Type",
