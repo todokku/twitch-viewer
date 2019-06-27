@@ -1882,6 +1882,8 @@ const {
 
 const getApiUrl = user_login => {
   //netlify in production doesn't auto-parse parameters
+  console.log(user_login);
+
   if (typeof user_login == "string") {
     user_login = JSON.parse(user_login);
   }
