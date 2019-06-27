@@ -25,40 +25,29 @@ const getApiUrl = (user_login) => {
 };
 
 exports.handler = async (event, context) => {
-  try{
+  const user_login = event.queryStringParameters.user_login;
 
+  const apiUrl = getApiUrl(user_login);
 
-    const user_login = event.queryStringParameters.user_login;
-
-    const apiUrl = getApiUrl(user_login);
-
-    const response = await fetch(
-      apiUrl,
-      {
-        headers: {
-          'content-type': 'application/json',
-          'Client-ID': TWITCH_CLIENT_ID
-        }
-      }
-    )
-
-   const userData = await response.text();
-
-   return {
-      statusCode: 200,
-      body: userData,
+  const response = await fetch(
+    apiUrl,
+    {
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Headers": "Content-Type",
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Client-ID': TWITCH_CLIENT_ID
       }
-    };
-  }
-  catch(err){
-    console.log(err);
-    return {
-      statusCode: 500,
-      body: err.message
     }
-  }
+  )
+
+ const userData = await response.text();
+
+ return {
+    statusCode: 200,
+    body: userData,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Headers": "Content-Type",
+      'content-type': 'application/json'
+    }
+  };
 }
