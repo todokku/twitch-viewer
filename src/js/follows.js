@@ -72,14 +72,10 @@ var follows = (function () {
       url: url
     })
     .done(function(response) {
-      console.log(response);
-      // if(typeof(response) == "string"){
-      //   response = JSON.parse(response);
-      // }
-
       live_streams = response.data;
 
       renderLive();
+      renderMultiTwitchLink();
       cacheLiveDom();
       bindLiveEvents();
     })
@@ -92,6 +88,7 @@ var follows = (function () {
   function cacheLiveDom(){
     $liveCheckBoxes = $(".live-stream-checkbox");
     $createLinksButton = $("#createLinksButton");
+    $multiTwitchField = $("#multiTwitchField");
     $multiTwitchLink = $("#multiTwitchLink");
   }
 
@@ -101,6 +98,9 @@ var follows = (function () {
 
   function handleCreateLinksButtonClick(evt){
     var selectedChannels = getSelectedChannels();
+
+    $multiTwitchField.removeClass("is-hidden");
+
     var multiTwitchLink = `http://www.multitwitch.tv/${selectedChannels.join('/')}`;
     $multiTwitchLink.attr('href', multiTwitchLink);
 
@@ -125,43 +125,44 @@ var follows = (function () {
     return selectedChannels;
   }
 
-  function renderFollowed() {
-    var template = `
-    <table class='table is-narrow is-striped'>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${makeFollowedTemplate(followed_channels)}
-      </tbody>
-    </table>
-    `;
-
-    $("#followed-target").html(template);
-  };
-
-  function makeFollowedTemplate(data){
-    let baseUrl = "https://www.twitch.tv/"
-    let newList = '';
-    data.forEach(function(object){
-      newList += `<tr>
-                  <td>
-                    <a href="${baseUrl + object.to_name}">
-                      ${object.to_name}
-                    </a>
-                  </td>
-                  <td>${object.to_id}</td>
-                  </tr>`
-    });
-    return newList;
-  }
+  // function renderFollowed() {
+  //   var template = `
+  //   <table class='table is-narrow is-striped'>
+  //     <thead>
+  //       <tr>
+  //         <th>Name</th>
+  //         <th>ID</th>
+  //       </tr>
+  //     </thead>
+  //     <tbody>
+  //       ${makeFollowedTemplate(followed_channels)}
+  //     </tbody>
+  //   </table>
+  //   `;
+  //
+  //   $("#followed-target").html(template);
+  // };
+  //
+  // function makeFollowedTemplate(data){
+  //   let baseUrl = "https://www.twitch.tv/"
+  //   let newList = '';
+  //   data.forEach(function(object){
+  //     newList += `<tr>
+  //                 <td>
+  //                   <a href="${baseUrl + object.to_name}">
+  //                     ${object.to_name}
+  //                   </a>
+  //                 </td>
+  //                 <td>${object.to_id}</td>
+  //                 </tr>`
+  //   });
+  //   return newList;
+  // }
 
   function renderLive() {
     var template = `
-    <h2 class="title is-4">Live Streams</h2>
+    <hr class="hr" />
+    <h2 class="title is-3">Live Streams</h2>
     <table class='table is-narrow is-striped'>
       <thead>
         <tr>
@@ -181,17 +182,25 @@ var follows = (function () {
         <button class="button is-link" id="createLinksButton">Create Links</button>
       </div>
     </div>
+    `;
 
-    <div class="field">
+    $("#live-target").html(template);
+  };
+
+  function renderMultiTwitchLink(){
+
+    var template = `
+    <hr class="hr" />
+    <div class="field is-hidden" id="multiTwitchField">
       <label class="label">MultiTwitch</label>
       <div class="control">
         <a id="multiTwitchLink">MultiTwitch Link</a>
       </div>
     </div>
-    `;
+    `
 
-    $("#live-target").html(template);
-  };
+    $("#multi-twitch-target").html(template);
+  }
 
   function makeLiveTemplate(data){
     let baseUrl = "https://www.twitch.tv/"
@@ -204,15 +213,15 @@ var follows = (function () {
                     </a>
                   </td>
                   <td>${object.title}</td>
-                  <td>${object.viewer_count}</td>
-                  <td>
-                  <label class="checkbox">
-                    <input
-                      type="checkbox"
-                      class="live-stream-checkbox"
-                      value="${object.user_name}"
-                    >
-                  </label>
+                  <td class="has-text-right">${object.viewer_count}</td>
+                  <td class="has-text-right">
+                    <label class="checkbox">
+                      <input
+                        type="checkbox"
+                        class="live-stream-checkbox"
+                        value="${object.user_name}"
+                      >
+                    </label>
                   </td>
                   </tr>`
     });
@@ -233,7 +242,6 @@ var follows = (function () {
   }
 
   function makeChatLinksTemplate(data){
-    console.log(data);
     let newList = '';
     data.forEach(function(name){
       newList += `

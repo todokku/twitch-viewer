@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Following Live</title>
+  <title>Follows</title>
 
    <link rel="stylesheet" href="css/bulma.min.css">
    <link rel="stylesheet" href="css/styles.css">
@@ -24,19 +24,19 @@
       <a class="navbar-item" href="users.html">
         Users
       </a>
+      <a class="navbar-item" href="follows.html">
+        Follows
+      </a>
       <a class="navbar-item" href="speedruns.html">
         Speedrun Streams
-      </a>
-      <a class="navbar-item" href="following.html">
-        Following Live
       </a>
     </div>
   </div>
 </nav>
 
-  <section class="section>">
+  <section>
     <div class="container">
-      <h1 class="title">Following Lookup</h1>
+      <h1 class="title">Follows</h1>
         <form id="form">
           <div class="field is-grouped">
             <div class="control">
@@ -47,8 +47,13 @@
             </div>
           </div>
         </form>
-        <div id="live-target"></div>
-        <div id="live-chat-links"></div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div id="live-target" class="content"></div>
+      <div id="multi-twitch-target" class="content"></div>
+      <div id="live-chat-links" class="content"></div>
     </div>
   </section>
 

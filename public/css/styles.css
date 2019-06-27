@@ -6,3 +6,7 @@ body {
 table, form {
 		margin-bottom: 1rem;
 }
+
+nav {
+  margin-bottom: 1.5rem;
+}
