@@ -9,7 +9,8 @@ const getApiUrl = (user_login) => {
   //netlify in production doesn't auto-parse parameters
   console.log(user_login);
   if(typeof(user_login) == "string"){
-    user_login = JSON.parse(user_login);
+    user_login = user_login.split(',');
+    console.log(user_login);
   }
 
   let users = user_login.join("&user_login=");
@@ -37,7 +38,7 @@ exports.handler = async (event, context) => {
     )
 
    const userData = await response.text();
-   console.log(userData);
+
    return {
       statusCode: 200,
       body: userData,
