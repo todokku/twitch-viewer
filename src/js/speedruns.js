@@ -1,4 +1,4 @@
-var speedrun = (function () {
+var speedruns = (function () {
   var view = [];
 
   function init() {
@@ -30,10 +30,11 @@ var speedrun = (function () {
   }
 
   function fetchSpeedrunStreams(additionalParams) {
-    var url = 'https://api.twitch.tv/helix/streams?community_id=6e940c4a-c42f-47d2-af83-0a2c7e47c421' + additionalParams;
+    var url = `${API_BASE_URL}/streams?community_id=6e940c4a-c42f-47d2-af83-0a2c7e47c421`
+      + additionalParams;
+
     $.ajax({
       url: url,
-      headers: { "Client-ID": "y7uxb2z0n44qqypemc79gaw0w35w0i" }
     })
     .done(function(response) {
       view = response;
@@ -84,3 +85,5 @@ var speedrun = (function () {
     init: init
   }
 })()
+
+speedruns.init();

@@ -7,7 +7,8 @@ module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   entry: {
     users: "./src/js/users.js",
-    follows: "./src/js/follows.js"
+    follows: "./src/js/follows.js",
+    speedruns: "./src/js/speedruns.js"
   },
   output: {
     filename: '[name].js',

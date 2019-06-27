@@ -150,40 +150,6 @@ var follows = (function () {
     return selectedChannels;
   }
 
-  // function renderFollowed() {
-  //   var template = `
-  //   <table class='table is-narrow is-striped'>
-  //     <thead>
-  //       <tr>
-  //         <th>Name</th>
-  //         <th>ID</th>
-  //       </tr>
-  //     </thead>
-  //     <tbody>
-  //       ${makeFollowedTemplate(followed_channels)}
-  //     </tbody>
-  //   </table>
-  //   `;
-  //
-  //   $("#followed-target").html(template);
-  // };
-  //
-  // function makeFollowedTemplate(data){
-  //   let baseUrl = "https://www.twitch.tv/"
-  //   let newList = '';
-  //   data.forEach(function(object){
-  //     newList += `<tr>
-  //                 <td>
-  //                   <a href="${baseUrl + object.to_name}">
-  //                     ${object.to_name}
-  //                   </a>
-  //                 </td>
-  //                 <td>${object.to_id}</td>
-  //                 </tr>`
-  //   });
-  //   return newList;
-  // }
-
   function renderLive() {
     var template = `
     <hr class="hr" />
