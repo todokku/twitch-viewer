@@ -1888,38 +1888,27 @@ const getApiUrl = user_login => {
 
   let users = user_login.join("&user_login=");
   let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
-  url = `https://api.twitch.tv/helix/streams?user_login=billbull`;
   return url;
 };
 
-exports.handler = async event => {
-  const {
-    httpMethod
-  } = event;
-
-  if (httpMethod === 'GET') {
-    const user_login = event.queryStringParameters.user_login;
-    const apiUrl = getApiUrl(user_login);
-    const response = await Object(node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
-      headers: {
-        'content-type': 'application/json',
-        'Client-ID': TWITCH_CLIENT_ID
-      }
-    });
-    const userData = await response.text();
-    return {
-      statusCode: 200,
-      body: userData,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Headers": "Content-Type",
-        'content-type': 'application/json'
-      }
-    };
-  }
-
+exports.handler = async (event, context) => {
+  const user_login = event.queryStringParameters.user_login;
+  const apiUrl = getApiUrl(user_login);
+  const response = await Object(node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
+    headers: {
+      'content-type': 'application/json',
+      'Client-ID': TWITCH_CLIENT_ID
+    }
+  });
+  const userData = await response.text();
   return {
-    statusCode: 404
+    statusCode: 200,
+    body: userData,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Headers": "Content-Type",
+      'content-type': 'application/json'
+    }
   };
 };
 

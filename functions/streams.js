@@ -14,16 +14,12 @@ const getApiUrl = (user_login) => {
   let users = user_login.join("&user_login=");
   let url = `https://api.twitch.tv/helix/streams?user_login=${users}`;
 
-  url = `https://api.twitch.tv/helix/streams?user_login=billbull`;
-
   return url;
 };
 
-exports.handler = async (event) => {
-  const { httpMethod } = event;
-
-  if (httpMethod === 'GET') {
+exports.handler = async (event, context) => {
     const user_login = event.queryStringParameters.user_login;
+
     const apiUrl = getApiUrl(user_login);
 
     const response = await fetch(
@@ -38,7 +34,7 @@ exports.handler = async (event) => {
 
    const userData = await response.text();
 
-    return {
+   return {
       statusCode: 200,
       body: userData,
       headers: {
@@ -47,7 +43,4 @@ exports.handler = async (event) => {
         'content-type': 'application/json'
       }
     };
-  }
-
-  return { statusCode: 404 };
 }
