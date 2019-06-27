@@ -1885,7 +1885,7 @@ const getApiUrl = user_login => {
   console.log(user_login);
 
   if (typeof user_login == "string") {
-    user_login = user_login.split(', ');
+    user_login = user_login.split(',').map(x => x.trim());
     console.log(user_login);
   }
 
