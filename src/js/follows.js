@@ -6,6 +6,7 @@ var follows = (function () {
   var $searchForm;
   var $userIdInput;
   var $liveCheckBoxes;
+  var chunked_user_logins = [];
 
   function init() {
     cacheDom();
@@ -65,24 +66,48 @@ var follows = (function () {
 
   function fetchLiveStreams(){
     var user_logins = followed_channels.map(x => x.to_name);
-    var user_query_string = user_logins.join("&user_login=");
-    var url = `${API_BASE_URL}/streams?user_login=${user_query_string}`;
+    chunked_user_logins = chunk(user_logins, 100);
+    requestStreams();
+  }
 
-    $.ajax({
-      url: url
-    })
-    .done(function(response) {
-      live_streams = response.data;
+  function chunk (arr, len) {
+    var chunks = [],
+        i = 0,
+        n = arr.length;
 
+    while (i < n) {
+      chunks.push(arr.slice(i, i += len));
+    }
+
+    return chunks;
+  }
+
+  function requestStreams()
+  {
+    if(chunked_user_logins.length > 0) {
+      var user_query_string = chunked_user_logins[0].join("&user_login=");
+      var url = `${API_BASE_URL}/streams?user_login=${user_query_string}`;
+
+      $.ajax({
+        url: url
+      })
+      .done(function(response) {
+        live_streams = [...live_streams, ...response.data];
+        chunked_user_logins.shift();
+        requestStreams();
+      })
+      .fail(function(response) {
+        console.log(response);
+        alert( "error" );
+      });
+    }
+    else {
+      live_streams.sort((a, b) => (a.viewer_count > b.viewer_count) ? -1 : 1);
       renderLive();
       renderMultiTwitchLink();
       cacheLiveDom();
       bindLiveEvents();
-    })
-    .fail(function(response) {
-      console.log(response);
-      alert( "error" );
-    });
+    }
   }
 
   function cacheLiveDom(){
