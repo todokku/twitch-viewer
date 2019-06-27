@@ -18,6 +18,9 @@ const getApiUrl = (user_login) => {
 };
 
 exports.handler = async (event, context) => {
+  try{
+
+
     const user_login = event.queryStringParameters.user_login;
 
     const apiUrl = getApiUrl(user_login);
@@ -43,4 +46,12 @@ exports.handler = async (event, context) => {
         'content-type': 'application/json'
       }
     };
+  }
+  catch(err){
+    console.log(err);
+    return {
+      statusCode: 500,
+      body: err.message
+    }
+  }
 }
