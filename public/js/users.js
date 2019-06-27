@@ -1,1 +1,100 @@
-!function(n){var t={};function e(r){if(t[r])return t[r].exports;var i=t[r]={i:r,l:!1,exports:{}};return n[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{enumerable:!0,get:r})},e.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},e.t=function(n,t){if(1&t&&(n=e(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var i in n)e.d(r,i,function(t){return n[t]}.bind(null,i));return r},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},e.p="",e(e.s=0)}([function(n,t){(function(){var n={};function t(t){t.preventDefault(),function(t){var e=`http://localhost:9000/users?name=${t}`;$.ajax({url:e}).done(function(t){var e;n=t.data[0],e=`\n      <div class="card">\n        <div class="card-content">\n          <div class="media">\n            <div class="media-left">\n              <figure class="image is-48x48">\n                <img src="${n.profile_image_url}" alt="Placeholder image" style="border-radius: 50%;">\n              </figure>\n            </div>\n            <div class="media-content">\n              <p class="title is-4">${n.display_name}</p>\n            </div>\n          </div>\n\n          <div class="content">\n            <table>\n              <tbody>\n                <tr>\n                  <td class="has-text-weight-bold">ID</td>\n                  <td>${n.id}</td>\n                </tr>\n                <tr>\n                  <td class="has-text-weight-bold">View Count</td>\n                  <td>${n.view_count}</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </div>\n    `,$("#target").html(e)}).fail(function(){alert("error")})}($usernameInput.val())}return{init:function(){$searchForm=$("#form"),$usernameInput=$("#usernameInput"),$searchForm.on("submit",t)}}})().init()}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/users.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/users.js":
+/*!*************************!*\
+  !*** ./src/js/users.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var users = (function () {\r\n  var user = {};\r\n\r\n  function init() {\r\n    cacheDom();\r\n    bindEvents();\r\n  };\r\n\r\n  function cacheDom() {\r\n    $searchForm = $(\"#form\");\r\n    $usernameInput = $(\"#usernameInput\");\r\n  };\r\n\r\n  function bindEvents(){\r\n    $searchForm.on(\"submit\", handleSearchFormSubmit);\r\n  };\r\n\r\n  function handleSearchFormSubmit(evt){\r\n    evt.preventDefault();\r\n    var login = $usernameInput.val();\r\n    fetchUserData(login);\r\n  }\r\n\r\n  function fetchUserData(login) {\r\n    var url = `${\"http://localhost:9000\"}/users?name=${login}`;\r\n    $.ajax({\r\n      url: url\r\n    })\r\n    .done(function(response) {\r\n      user = response.data[0];\r\n      render();\r\n    })\r\n    .fail(function() {\r\n      alert( \"error\" );\r\n    });\r\n  };\r\n\r\n  function render() {\r\n    var template = `\r\n      <div class=\"card\">\r\n        <div class=\"card-content\">\r\n          <div class=\"media\">\r\n            <div class=\"media-left\">\r\n              <figure class=\"image is-48x48\">\r\n                <img src=\"${user.profile_image_url}\" alt=\"Placeholder image\" style=\"border-radius: 50%;\">\r\n              </figure>\r\n            </div>\r\n            <div class=\"media-content\">\r\n              <p class=\"title is-4\">${user.display_name}</p>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"content\">\r\n            <table>\r\n              <tbody>\r\n                <tr>\r\n                  <td class=\"has-text-weight-bold\">ID</td>\r\n                  <td>${user.id}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td class=\"has-text-weight-bold\">View Count</td>\r\n                  <td>${user.view_count}</td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    `;\r\n\r\n    $(\"#target\").html(template);\r\n  };\r\n\r\n  return {\r\n    init: init\r\n  }\r\n})()\r\n\r\nusers.init();\r\n\n\n//# sourceURL=webpack:///./src/js/users.js?");
+
+/***/ })
+
+/******/ });
