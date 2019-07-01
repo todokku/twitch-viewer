@@ -7,10 +7,9 @@ const {
 
 const getApiUrl = (ids) => {
   //netlify in production doesn't auto-parse parameters
-  if(typeof(user_login) == "string"){
-    ids =
-      ids.split(',').map(x => x.trim());
-    }
+  if(typeof(ids) == "string"){
+    ids = ids.split(',').map(x => x.trim());
+  }
 
   let game_ids = ids.join("&id=");
   let url = `https://api.twitch.tv/helix/games?id=${game_ids}`;

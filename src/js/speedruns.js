@@ -55,7 +55,7 @@ var speedruns = (function () {
   function getGames() {
     var games = view.data.map(x => x.game_id);
     var game_ids = games.join("&id=");
-    var url = `${API_BASE_URL}/games?id=${game_ids}}`;
+    var url = `${API_BASE_URL}/games?id=${game_ids}`;
 
     return $.ajax({
       url: url,

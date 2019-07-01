@@ -26,6 +26,7 @@ var follows = (function () {
     evt.preventDefault();
     resetData();
     user_id = $userIdInput.val();
+
     fetchFollowedChannels(user_id, "");
   }
 
@@ -43,7 +44,7 @@ var follows = (function () {
       url += `&after=${after}`;
     }
 
-    $.ajax({
+    return $.ajax({
       url: url,
     })
     .done(function(response) {
@@ -102,12 +103,42 @@ var follows = (function () {
       });
     }
     else {
-      live_streams.sort((a, b) => (a.viewer_count > b.viewer_count) ? -1 : 1);
+      processLiveStreams();
+    }
+  }
+
+  function processLiveStreams()
+  {
+    live_streams.sort((a, b) => (a.viewer_count > b.viewer_count) ? -1 : 1);
+
+    getGames()
+    .then(function(response){
+      mapGamesToStreams(response.data);
       renderLive();
       renderMultiTwitchLink();
       cacheLiveDom();
       bindLiveEvents();
-    }
+    })
+  }
+
+  function getGames() {
+    var games = live_streams.map(x => x.game_id);
+    var game_ids = games.join("&id=");
+    var url = `${API_BASE_URL}/games?id=${game_ids}`;
+
+    return $.ajax({
+      url: url,
+    });
+  }
+
+  function mapGamesToStreams(games){
+    games.forEach(x => {
+      var streams = live_streams.filter(obj => {
+        return obj.game_id == x.id;
+      })
+
+      streams.forEach(y => y.game_name = x.name);
+    });
   }
 
   function cacheLiveDom(){
@@ -158,6 +189,7 @@ var follows = (function () {
       <thead>
         <tr>
           <th>Name</th>
+          <th>Game</th>
           <th>Title</th>
           <th>Viewers</th>
           <th>Add to List</th>
@@ -203,6 +235,7 @@ var follows = (function () {
                       ${object.user_name}
                     </a>
                   </td>
+                  <td>${object.game_name}</td>
                   <td>${object.title}</td>
                   <td class="has-text-right">${object.viewer_count}</td>
                   <td class="has-text-right">
