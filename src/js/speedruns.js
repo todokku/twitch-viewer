@@ -4,8 +4,22 @@ var speedruns = (function () {
   function init() {
     cacheDom();
     bindEvents();
-    fetchSpeedrunStreams("");
+    getPageData("");
   };
+
+  function getPageData(streamParams){
+    fetchSpeedrunStreams(streamParams)
+    .then(function(response){
+      view = response;
+      return getGames();
+    })
+    .then(function(response){
+      games = response.data;
+      mapGamesToStreams(games);
+      renderStreams();
+    })
+    .fail(x => alert("error"));
+  }
 
   function cacheDom() {
     $backButton = $("#back-button");
@@ -20,30 +34,44 @@ var speedruns = (function () {
   function handleBackButtonClick(){
     var cursor = view.pagination.cursor;
     var params = `&before=${cursor}`;
-    fetchSpeedrunStreams(params);
+    getPageData(params);
   }
 
   function handleNextButtonClick(){
     var cursor = view.pagination.cursor;
     var params = `&after=${cursor}`;
-    fetchSpeedrunStreams(params);
+    getPageData(params);
   }
 
   function fetchSpeedrunStreams(additionalParams) {
     var url = `${API_BASE_URL}/streams?community_id=6e940c4a-c42f-47d2-af83-0a2c7e47c421`
       + additionalParams;
 
-    $.ajax({
+    return $.ajax({
       url: url,
     })
-    .done(function(response) {
-      view = response;
-      renderStreams();
-    })
-    .fail(function() {
-      alert( "error" );
-    });
   };
+
+  function getGames() {
+    var games = view.data.map(x => x.game_id);
+    var game_ids = games.join("&id=");
+    var url = `${API_BASE_URL}/games?id=${game_ids}}`;
+
+    return $.ajax({
+      url: url,
+    });
+  }
+
+  function mapGamesToStreams(games){
+    games.forEach(x => {
+      var streams = view.data.filter(obj => {
+        return obj.game_id == x.id;
+      })
+      console.log(streams);
+
+      streams.forEach(y => y.game_name = x.name);
+    });
+  }
 
   function renderStreams() {
     var template = `
@@ -51,6 +79,7 @@ var speedruns = (function () {
       <thead>
         <tr>
           <th>Name</th>
+          <th>Game</th>
           <th>Title</th>
           <th>Viewers</th>
         </tr>
@@ -74,6 +103,7 @@ var speedruns = (function () {
                       ${object.user_name}
                     </a>
                   </td>
+                  <td>${object.game_name}</td>
                   <td>${object.title}</td>
                   <td>${object.viewer_count}</td>
                   </tr>`
