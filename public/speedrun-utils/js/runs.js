@@ -1,5 +1,5 @@
 var runs = (function () {
-  var game = "w6j4m46j";
+  var game = "3dxk8v1y";
   var runApiOffset = 0;
 
   function init() {
@@ -144,11 +144,78 @@ var runs = (function () {
         <div class="container">
           <h2 class="title is-3">${category[0]}</h2>
           ${renderWorldRecords(worldRecordRuns)}
+          <div style="position: relative; height: 40vh; width: 80vh">
+            <canvas id="${category[0]}Chart"></canvas>
+          </div>
         </div>
       </section>
       <hr/>`
     });
+
     $("#wrs-target").html(template);
+
+    categories.forEach(function(category){
+      var verifiedRuns = category[1]
+        .filter(x => x.status.status == "verified");
+      var worldRecordRuns = worldRecords(verifiedRuns);
+
+      var ctx = document.getElementById(`${category[0]}Chart`).getContext('2d');
+      var worldRecordData = worldRecordRuns.map(run => {
+        return {
+          x: run.date,
+          y: run.times.realtime_t
+        }
+      });
+      console.log(worldRecordData);
+      var chartOptions = {
+        title: {
+          display: true,
+          text: category[0]
+        },
+        legend: {
+          display: false
+        },
+        elements: {
+          line: {
+            tension: 0 //disables bezier curves
+          }
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data){
+              return fancyTimeFormat(tooltipItem.value);
+            }
+          }
+        },
+        scales: {
+          xAxes: [{
+            type: 'time',
+            time: {
+              unit: 'month'
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              callback: function(value, index, values){
+                return fancyTimeFormat(value);
+              }
+            }
+          }]
+        }
+      };
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          datasets: [{
+            backgroundColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false,
+            data: worldRecordData
+          }]
+        },
+        options: chartOptions
+      });
+    });
   }
 
   function renderWorldRecords(runs) {

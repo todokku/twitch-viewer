@@ -125,7 +125,6 @@ var leaderboards = (function () {
             ${makeRunsTemplate(object.leaderboard.runs, object.leaderboard.players.data)}
           </tbody>
         </table>
-
       `;
     })
     return newList;
