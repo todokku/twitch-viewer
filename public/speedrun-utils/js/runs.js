@@ -1,8 +1,40 @@
 var runs = (function () {
-  var game = "3dxk8v1y";
+  var game_id = "3dxk8v1y";
   var runApiOffset = 0;
 
+  //dom elements
+  var $form = null;
+  var $gameNameInput = null;
+  var $gameLinks = null;
+
   function init() {
+    cacheDom();
+    bindEvents();
+  };
+
+  //dom caching
+  function cacheDom(){
+    $form = $("#form");
+    $gameNameInput = $form.find("#gameNameInput");
+  }
+
+  function cacheGameDom(){
+    $gameLinks = $(".game-link");
+  }
+
+  //event binding
+  function bindEvents(){
+    $form.on("submit", fetchGames);
+  }
+
+  function bindGameEvents() {
+    $gameLinks.on("click", handleGameClick)
+  }
+
+  //click handlers
+  function handleGameClick(evt) {
+    game_id = $(evt.target).data("id");
+
     runPromise()
     .then((response) => {
       const grouped = groupBy(response, run => run.category.data.name);
@@ -10,12 +42,24 @@ var runs = (function () {
 
       renderRunCategories(groupedRuns);
       renderWorldRecordCategories(groupedRuns);
+    });
+  }
+
+  function fetchGames(evt){
+    evt.preventDefault();
+    var game_name = $gameNameInput.val();
+
+    $.ajax({url: `https://www.speedrun.com/api/v1/games?name=${game_name}`})
+    .then(response => {
+      renderGames(response.data);
+      cacheGameDom();
+      bindGameEvents();
     })
-  };
+  }
 
   function runPromise() {
     return new Promise((resolve, reject) => {
-      getRuns(`https://www.speedrun.com/api/v1/runs?game=${game}&embed=players,category`, [], resolve, reject)
+      getRuns(`https://www.speedrun.com/api/v1/runs?game=${game_id}&embed=players,category`, [], resolve, reject)
     })
   }
 
@@ -64,6 +108,38 @@ var runs = (function () {
     return map;
   }
 
+  //rendering
+
+  function renderGames(games){
+    var template = `
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half">
+          <nav class="panel">
+            ${makeGameTemplate(games)}
+          </nav>
+        </div>
+      </div>
+    </div>
+    `;
+
+    $("#games-target").html(template);
+  }
+
+  function makeGameTemplate(data){
+    let newList = '';
+
+    data.forEach(function(game){
+      newList += `
+        <a class="panel-block game-link" data-id="${game.id}">
+          ${game.names.international}
+        </a>
+      `;
+    })
+
+    return newList;
+  }
+
   function renderRunCategories(categories){
     let newList = '';
 
@@ -92,6 +168,7 @@ var runs = (function () {
           <th>Category</th>
           <th>Time</th>
           <th>Status</th>
+          <th>Link</th>
         </tr>
       </thead>
       <tbody>
@@ -105,6 +182,7 @@ var runs = (function () {
 
   function makeRunTemplate(data){
     let newList = '';
+    console.log(data);
 
     data.forEach(function(object){
       var playerName = "";
@@ -122,6 +200,7 @@ var runs = (function () {
         <td>${object.category.data.name}</td>
         <td>${fancyTimeFormat(object.times.realtime_t)}</td>
         <td>${object.status.status}</td>
+        <td><a href="https://www.speedrun.com/${object.game}/run/${object.id}">Link</a></td>
       <tr/>`
     });
     return newList;
@@ -166,7 +245,7 @@ var runs = (function () {
           y: run.times.realtime_t
         }
       });
-      console.log(worldRecordData);
+
       var chartOptions = {
         title: {
           display: true,
@@ -227,6 +306,7 @@ var runs = (function () {
           <th>Date</th>
           <th>Category</th>
           <th>Time</th>
+          <th>Link</th>
         </tr>
       </thead>
       <tbody>
@@ -256,6 +336,7 @@ var runs = (function () {
         <td>${object.date}</td>
         <td>${object.category.data.name}</td>
         <td>${fancyTimeFormat(object.times.realtime_t)}</td>
+        <td><a href="https://www.speedrun.com/${object.game}/run/${object.id}">Link</a></td>
       <tr/>`
     });
     return newList;
