@@ -1,49 +1,97 @@
 var leaderboards = (function () {
-  var games = [
-    {
-      id: 'ldej0x13',
-      name: "King's Quest: Quest for the Crown"
-    },
-    {
-      id: "268w856p",
-      name: "King's Quest II: Romancing the Throne"
-    },
-    {
-      id: "9do8331p",
-      name: "King's Quest III: To Heir Is Human"
-    },
-    {
-      id: "m1mnzjd2",
-      name: "King's Quest IV: The Perils of Rosella"
-    },
-    {
-      id: 'yd4kz56e',
-      name: "King's Quest V: Absence Makes the Heart Go Yonder",
-    },
-    {
-      id: '3dxk8v1y',
-      name: "King's Quest VI: Heir Today Gone Tomorrow"
-    },
-    {
-      id: "v1pxz768",
-      name: "King's Quest VII: The Princeless Bride"
-    },
-    {
-      id: "46w2e76r",
-      name: "Mask of Eternity"
-    }
-  ];
+
+  var series_id = "";
+
+  //dom elements
+  var $form = null;
+  var $seriesNameInput = null;
+  var $seriesLinks = null;
 
   function init() {
+    cacheDom();
+    bindEvents();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const series_id_param = urlParams.get('series_id');
+    if(series_id_param){
+      series_id = series_id_param;
+      startRender();
+    }
+  };
+
+  //dom caching
+  function cacheDom(){
+    $form = $("#form");
+    $seriesNameInput = $form.find("#seriesNameInput");
+  }
+
+  function cacheSeriesDom(){
+    $seriesLinks = $(".series-link");
+  }
+
+  //event binding
+  function bindEvents(){
+    $form.on("submit", fetchSeries);
+  }
+
+  function bindSeriesEvents() {
+    $seriesLinks.on("click", handleSeriesClick)
+  }
+
+  //click handling
+  function handleSeriesClick(evt) {
+    series_id = $(evt.target).data("id");
+    startRender();
+  }
+
+  function startRender() {
+    fetchGames(series_id)
+    .then(response => {
+      games =
+        response.data
+        .sort((a,b) => {
+          var dateA = new Date(a["release-date"]);
+          var dateB = new Date(b["release-date"]);
+          return dateA - dateB;
+        })
+        .map(x => {
+          return {
+            id: x.id,
+            name: x.names.international
+          }
+        });
+
+        getLeaderboards();
+    })
+  }
+
+  //DAL
+  function fetchSeries(evt){
+    evt.preventDefault();
+    var series_query = $seriesNameInput.val();
+
+    $.ajax({url: `https://www.speedrun.com/api/v1/series?name=${series_query}`})
+    .then(response => {
+      renderSeries(response.data);
+      cacheSeriesDom();
+      bindSeriesEvents();
+    })
+  }
+
+  function fetchGames(series_id){
+    return $.ajax({url: `https://www.speedrun.com/api/v1/series/${series_id}/games`});
+  }
+
+  function getLeaderboards(){
     Promise.all(getGamePromises())
     .then(function(){
       return Promise.all(getLeaderboardPromises());
     })
     .then(() => {
       console.log(games);
-      renderGames();
+      renderLeaderboards();
     })
-  };
+  }
 
   function getGamePromises(){
     let gamePromises = [];
@@ -70,6 +118,7 @@ var leaderboards = (function () {
         leaderboardPromises.push(
           fetchLeaderboard(g.id, c.id)
           .then(function(response){
+            console.log(response);
             c.leaderboard = response.data;
           })
         )
@@ -86,19 +135,53 @@ var leaderboards = (function () {
   }
 
   function fetchLeaderboard(game, category){
-    var url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players`;
+    var url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players,variables`;
     return $.ajax({url: url});
   }
 
-  function renderGames() {
+  //rendering
+  function renderSeries(series){
     var template = `
-    ${makeGameTemplate(games)}
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half">
+          <nav class="panel">
+            ${makeSeriesTemplate(series)}
+          </nav>
+        </div>
+      </div>
+    </div>
     `;
 
-    $("#game-target").html(template);
+    $("#series-target").html(template);
+  }
+
+  function makeSeriesTemplate(data){
+    let newList = '';
+
+    data.forEach(function(series){
+      newList += `
+        <a class="panel-block series-link" data-id="${series.id}">
+          ${series.names.international}
+        </a>
+      `;
+    })
+
+    return newList;
+  }
+
+  function renderLeaderboards() {
+    var template = `
+    <div class="container">
+      <a href="./leaderboards.html?series_id=${series_id}">Permalink</a>
+    </div>
+    ${makeLeaderboardTemplate(games)}
+    `;
+
+    $("#leaderboard-target").html(template);
   };
 
-  function makeGameTemplate(data){
+  function makeLeaderboardTemplate(data){
     let newList = '';
 
     data.forEach(function(object){
@@ -141,7 +224,7 @@ var leaderboards = (function () {
           <td>${fancyTimeFormat(object.run.times.realtime_t)}</td>
           <td>${object.run.date}</td>
           <td>
-            <a href="${object.run.videos.links[0].uri}">Link</a>
+            <a href="${getVideoUrlFromRun(object.run)}">Link</a>
           </td>
         </tr>
       `;
@@ -149,6 +232,7 @@ var leaderboards = (function () {
     return newList;
   }
 
+  //utils
   function getPlayerNameFromRun(run, players) {
     let player = players.find(x => x.id == run.players[0].id)
     if(player.names){
@@ -175,7 +259,19 @@ var leaderboards = (function () {
     ret += "" + mins + ":" + (secs < 10 ? "0" : "");
     ret += "" + secs;
     return ret;
-}
+  }
+
+  function getVideoUrlFromRun(run) {
+    if(run.vidoes == null){
+      return "";
+    }
+    else if(run.videos.links){
+      return run.videos.links[0].uri;
+    }
+    else {
+      return run.videos.text;
+    }
+  }
 
   return {
     init: init

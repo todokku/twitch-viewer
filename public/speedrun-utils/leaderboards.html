@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>King's Quest WR</title>
+  <title>Series Leaderboards</title>
   <link rel="stylesheet" href="css/bulma.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -20,22 +20,40 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="users.html">
+      <a class="navbar-item" href="../users.html">
         Users
       </a>
-      <a class="navbar-item" href="speedruns.html">
-        Speedrun Streams
+      <a class="navbar-item" href="../follows.html">
+        Follows
       </a>
-      <a class="navbar-item" href="following.html">
-        Following Live
+      <a class="navbar-item" href="leaderboards.html">
+        Leaderboards
+      </a>
+      <a class="navbar-item" href="runs.html">
+        Speedruns
       </a>
     </div>
   </div>
 </nav>
 
-  <div id="game-target">
+  <section class="section>">
+    <div class="container">
+      <h1 class="title">Series Leaderboards</h1>
+        <form id="form">
+          <div class="field is-grouped">
+            <div class="control">
+              <input class="input" type="text" id="seriesNameInput" placeholder="Series">
+            </div>
+            <div class="control">
+              <input type="submit" class="button is-link" value="Find Series"/>
+            </div>
+          </div>
+        </form>
+    </div>
+  </section>
 
-  </div>
+  <div id="series-target"></div>
+  <div id="leaderboard-target"></div>
 
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
