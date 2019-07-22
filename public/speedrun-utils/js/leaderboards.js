@@ -88,7 +88,6 @@ var leaderboards = (function () {
       return Promise.all(getLeaderboardPromises());
     })
     .then(() => {
-      console.log(games);
       renderLeaderboards();
     })
   }
@@ -118,7 +117,6 @@ var leaderboards = (function () {
         leaderboardPromises.push(
           fetchLeaderboard(g.id, c.id)
           .then(function(response){
-            console.log(response);
             c.leaderboard = response.data;
           })
         )
@@ -262,7 +260,7 @@ var leaderboards = (function () {
   }
 
   function getVideoUrlFromRun(run) {
-    if(run.vidoes == null){
+    if(run.videos == null){
       return "";
     }
     else if(run.videos.links){
