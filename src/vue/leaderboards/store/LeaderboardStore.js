@@ -30,7 +30,6 @@ export const store = new Vuex.Store({
         return Promise.all(LeaderboardsApi.getLeaderboardPromisesByGame(context.state.games));
       })
       .then(response => {
-        console.log(response);
         context.commit("SET_LEADERBOARDS", response);
       })
     }
@@ -46,12 +45,23 @@ export const store = new Vuex.Store({
 
       //add leaderboards to category
       state.leaderboards.forEach(l => {
+        //some leaderboards don't have data
+        if(!l.data){
+          return;
+        }
+
         let category =
           flattenedCategories.find( c => c.id == l.data.category);
 
-        if(category){
+        //only add subcategory variables
+        let variables =
+          l.data.variables.data.filter(v =>
+            v["is-subcategory"] == true
+          );
+
+        if(category && l.data){
           category.players = l.data.players.data;
-          category.variables = l.data.variables.data;
+          category.variables = variables;
           category.runs = RunsApi.mapRunsToView(l.data.runs, category.players);
         }
       })

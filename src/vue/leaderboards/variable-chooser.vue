@@ -1,12 +1,15 @@
 <template>
-  <nav class="panel">
-    <VariableOption
-      v-for="option in options"
-      v-bind:option="option"
-      v-bind:key="option.id"
-    >
-    </VariableOption>
-  </nav>
+  <div class="tabs">
+    <ul>
+      <VariableOption
+        v-for="option in options"
+        v-bind:option="option"
+        v-bind:key="option.id"
+        v-bind:selected-value="selectedValue"
+      >
+      </VariableOption>
+    </ul>
+  </div>
 </template>
 <script>
 import VariableOption from './variable-option.vue'
@@ -33,8 +36,12 @@ export default {
       });
 
       return options;
+    },
+    selectedValue() {
+      return this.variable.values.default;
     }
   },
+
   components: {
     VariableOption
   }
