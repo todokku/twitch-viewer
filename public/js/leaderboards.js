@@ -127,7 +127,7 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  props: {\n    category: Object\n  }\n});\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _run_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./run.vue */ \"./src/vue/leaderboards/run.vue\");\n/* harmony import */ var _variable_chooser_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./variable-chooser.vue */ \"./src/vue/leaderboards/variable-chooser.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  props: {\n    category: Object\n  },\n  components: {\n    Run: _run_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n    VariableChooser: _variable_chooser_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n  }\n});\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -155,6 +155,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gam
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/run.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/run.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  props: {\r\n    run: Object\r\n  },\r\n  computed: {\r\n    formatPlayers() {\r\n      return this.run.players.join(', ');\r\n    }\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/run.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/series-search-result.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/series-search-result.vue?vue&type=script&lang=js& ***!
@@ -179,6 +191,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _variable_option_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variable-option.vue */ \"./src/vue/leaderboards/variable-option.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  props: {\r\n    variable: Object\r\n  },\r\n  computed: {\r\n    options() {\r\n      var valuesObj = this.variable.values.values;\r\n      var options = [];\r\n      var self = this;\r\n\r\n      Object.keys(valuesObj).forEach(function(key,index) {\r\n        // key: the name of the object key\r\n        // index: the ordinal position of the key within the object\r\n        var option = {\r\n          value: key,\r\n          label: valuesObj[key].label,\r\n          variableId: self.variable.id\r\n        }\r\n\r\n        options.push(option);\r\n      });\r\n\r\n      return options;\r\n    }\r\n  },\r\n  components: {\r\n    VariableOption: _variable_option_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-chooser.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  props: {\r\n    option: Object\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-option.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6& ***!
@@ -187,7 +223,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"h3\", { staticClass: \"title is-4\" }, [\n      _vm._v(_vm._s(_vm.category.name))\n    ]),\n    _vm._v(\" \"),\n    _vm._m(0)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"table\", { staticClass: \"table is-striped\" }, [_c(\"tbody\")])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    [\n      _c(\"h3\", { staticClass: \"title is-4\" }, [\n        _vm._v(_vm._s(_vm.category.name))\n      ]),\n      _vm._v(\" \"),\n      _vm._l(_vm.category.variables, function(variable) {\n        return _c(\"VariableChooser\", {\n          key: variable.id,\n          attrs: { variable: variable }\n        })\n      }),\n      _vm._v(\" \"),\n      _c(\"table\", { staticClass: \"table is-striped\" }, [\n        _c(\n          \"tbody\",\n          _vm._l(_vm.category.runs, function(run) {\n            return _c(\"Run\", { key: run.id, attrs: { run: run } })\n          }),\n          1\n        )\n      ])\n    ],\n    2\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -215,6 +251,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"tr\", [\n    _c(\"td\", [_vm._v(\"\\n    \" + _vm._s(_vm.run.place) + \"\\n  \")]),\n    _vm._v(\" \"),\n    _c(\"td\", [_vm._v(\"\\n    \" + _vm._s(_vm.formatPlayers) + \"\\n  \")]),\n    _vm._v(\" \"),\n    _c(\"td\", [_vm._v(\"\\n    \" + _vm._s(_vm.run.time) + \"\\n  \")]),\n    _vm._v(\" \"),\n    _c(\"td\", [_vm._v(\"\\n    \" + _vm._s(_vm.run.date) + \"\\n  \")]),\n    _vm._v(\" \"),\n    _c(\"td\", [\n      _c(\"a\", { attrs: { href: _vm.run.place } }, [\n        _vm._v(\"\\n      Link\\n    \")\n      ])\n    ])\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/run.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/series-search-result.vue?vue&type=template&id=4eee1293&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/series-search-result.vue?vue&type=template&id=4eee1293& ***!
@@ -236,6 +284,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"form\", { attrs: { id: \"form\" } }, [\n      _c(\"div\", { staticClass: \"field is-grouped\" }, [\n        _c(\"div\", { staticClass: \"control\" }, [\n          _c(\"input\", {\n            directives: [\n              {\n                name: \"model\",\n                rawName: \"v-model\",\n                value: _vm.seriesQuery,\n                expression: \"seriesQuery\"\n              }\n            ],\n            staticClass: \"input\",\n            attrs: { type: \"text\", placeholder: \"Series\" },\n            domProps: { value: _vm.seriesQuery },\n            on: {\n              input: function($event) {\n                if ($event.target.composing) {\n                  return\n                }\n                _vm.seriesQuery = $event.target.value\n              }\n            }\n          })\n        ]),\n        _vm._v(\" \"),\n        _c(\"div\", { staticClass: \"control\" }, [\n          _c(\"input\", {\n            staticClass: \"button is-link\",\n            attrs: { type: \"submit\", value: \"Find Series\" },\n            on: {\n              click: function($event) {\n                $event.preventDefault()\n                return _vm.handleSeriesClick($event)\n              }\n            }\n          })\n        ])\n      ])\n    ]),\n    _vm._v(\" \"),\n    _c(\n      \"nav\",\n      { staticClass: \"panel\" },\n      _vm._l(_vm.searchResults, function(series) {\n        return _c(\"SeriesSearchResult\", {\n          key: series.id,\n          attrs: { series: series }\n        })\n      }),\n      1\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/series-search.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"nav\",\n    { staticClass: \"panel\" },\n    _vm._l(_vm.options, function(option) {\n      return _c(\"VariableOption\", { key: option.id, attrs: { option: option } })\n    }),\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-chooser.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"a\", { staticClass: \"panel-block\" }, [\n    _vm._v(\"\\n  \" + _vm._s(_vm.option.label) + \"\\n\")\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-option.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -285,6 +357,18 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./src/vue/api/Categories.js":
+/*!***********************************!*\
+  !*** ./src/vue/api/Categories.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getCategory(category_id){\r\n    const url = `https://www.speedrun.com/api/v1/categories/${category_id}?embed=variables`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n  getDefaultVariable(category){\r\n    if(category.variables.length > 0){\r\n      let variableId = variables[0].id;\r\n      let defaultValue = variables[0].values.default;\r\n\r\n      return {\r\n        id: variableId,\r\n        value: defaultValue\r\n      }\r\n    }\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Categories.js?");
+
+/***/ }),
+
 /***/ "./src/vue/api/Games.js":
 /*!******************************!*\
   !*** ./src/vue/api/Games.js ***!
@@ -293,7 +377,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getBySeriesId(series_id){\r\n    const url = `https://www.speedrun.com/api/v1/series/${series_id}/games?embed=categories`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n  mapGamesToView(games){\r\n    return games.map(g => {\r\n      return {\r\n        id: g.id,\r\n        name: g.names.international,\r\n        releaseDate: g[\"release-date\"],\r\n        categories: g.categories.data.map(c => {\r\n          return {\r\n            id: c.id,\r\n            name: c.name\r\n          }\r\n        })\r\n      }\r\n    });\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Games.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getBySeriesId(series_id){\r\n    const url = `https://www.speedrun.com/api/v1/series/${series_id}/games?embed=categories,variables`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n  mapGamesToView(games){\r\n    return games.map(g => {\r\n      return {\r\n        id: g.id,\r\n        name: g.names.international,\r\n        releaseDate: g[\"release-date\"],\r\n        categories: g.categories.data.filter(c => c.type == \"per-game\").map(c => {\r\n          return {\r\n            id: c.id,\r\n            name: c.name\r\n          }\r\n        })\r\n      }\r\n    });\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Games.js?");
 
 /***/ }),
 
@@ -305,7 +389,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getLeaderboardPromises(games) {\r\n    let leaderboardPromises = [];\r\n\r\n    games.forEach((g) => {\r\n      g.categories.data\r\n        .filter(c => c.type == \"per-game\")\r\n        .forEach((c) => {\r\n        leaderboardPromises.push (\r\n          this.getLeaderboard(g.id, c.id)\r\n        )\r\n      })\r\n    })\r\n\r\n    return leaderboardPromises;\r\n  },\r\n\r\n  getLeaderboard(game, category){\r\n    let url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players,variables`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Leaderboards.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Categories_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.js */ \"./src/vue/api/Categories.js\");\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getLeaderboardPromisesByGame(games) {\r\n    let leaderboardPromises = [];\r\n\r\n    games.forEach((g) => {\r\n      g.categories.data\r\n        .filter(c => c.type == \"per-game\")\r\n        .forEach((c) => {\r\n\r\n        //if a category has variables, get the board with the default value\r\n        if(g.variables.data.length > 0) {\r\n          var categoryVariable = g\r\n            .variables.data\r\n            .find(v => v.category == c.id);\r\n\r\n          if(categoryVariable) {\r\n            var defaultVariable = {\r\n              id: categoryVariable.id,\r\n              value: categoryVariable.values.default\r\n            };\r\n\r\n            leaderboardPromises.push (\r\n              this.getLeaderboard(g.id, c.id, defaultVariable)\r\n            )\r\n          }\r\n          else {\r\n            leaderboardPromises.push (\r\n              this.getLeaderboard(g.id, c.id, null)\r\n            )\r\n          }\r\n        }\r\n        else {\r\n          leaderboardPromises.push (\r\n            this.getLeaderboard(g.id, c.id, null)\r\n          )\r\n        }\r\n      })\r\n    })\r\n\r\n    return leaderboardPromises;\r\n  },\r\n  getLeaderboard(game, category, variable){\r\n    let url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players,variables`;\r\n\r\n    if(variable) {\r\n      url +=`&var-${variable.id}=${variable.value}`;\r\n    }\r\n\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Leaderboards.js?");
 
 /***/ }),
 
@@ -317,7 +401,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  mapRunsToView(runs, players) {\r\n    let runView = runs\r\n      .map(r => {\r\n        return {\r\n          place: r.place,\r\n          date: r.run.date,\r\n          weblink: r.run.weblink,\r\n          players: this.getPlayersFromRun(r.run.players, players),\r\n          time: this.fancyTimeFormat(r.run.times.realtime_t)\r\n        }\r\n      });\r\n\r\n    return runView;\r\n  },\r\n  fancyTimeFormat(time) {\r\n    // Hours, minutes and seconds\r\n    var hrs = ~~(time / 3600);\r\n    var mins = ~~((time % 3600) / 60);\r\n    var secs = ~~time % 60;\r\n\r\n    // Output like \"1:01\" or \"4:03:59\" or \"123:03:59\"\r\n    var ret = \"\";\r\n\r\n    if (hrs > 0) {\r\n        ret += \"\" + hrs + \":\" + (mins < 10 ? \"0\" : \"\");\r\n    }\r\n\r\n    ret += \"\" + mins + \":\" + (secs < 10 ? \"0\" : \"\");\r\n    ret += \"\" + secs;\r\n    return ret;\r\n  },\r\n  getPlayersFromRun(runPlayers, allPlayers) {\r\n    let players = [];\r\n\r\n    runPlayers\r\n    .forEach(rp => {\r\n      let player = allPlayers.find(ap => ap.id == rp.id);\r\n      if(player.names){\r\n        players.push(player.names.international);\r\n      }\r\n      else {\r\n        players.push(player.name);\r\n      }\r\n    })\r\n\r\n    return players;\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Runs.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  mapRunsToView(runs, players) {\r\n    let runView = runs\r\n      .map(r => {\r\n        return {\r\n          place: r.place,\r\n          id: r.run.id,\r\n          date: r.run.date,\r\n          weblink: r.run.weblink,\r\n          players: this.getPlayersFromRun(r.run.players, players),\r\n          time: this.fancyTimeFormat(r.run.times.realtime_t)\r\n        }\r\n      });\r\n\r\n    return runView;\r\n  },\r\n  fancyTimeFormat(time) {\r\n    // Hours, minutes and seconds\r\n    var hrs = ~~(time / 3600);\r\n    var mins = ~~((time % 3600) / 60);\r\n    var secs = ~~time % 60;\r\n\r\n    // Output like \"1:01\" or \"4:03:59\" or \"123:03:59\"\r\n    var ret = \"\";\r\n\r\n    if (hrs > 0) {\r\n        ret += \"\" + hrs + \":\" + (mins < 10 ? \"0\" : \"\");\r\n    }\r\n\r\n    ret += \"\" + mins + \":\" + (secs < 10 ? \"0\" : \"\");\r\n    ret += \"\" + secs;\r\n    return ret;\r\n  },\r\n  getPlayersFromRun(runPlayers, allPlayers) {\r\n    let players = [];\r\n\r\n    runPlayers\r\n    .forEach(rp => {\r\n      let player = allPlayers.find(ap => ap.id == rp.id);\r\n      if(player.names){\r\n        players.push(player.names.international);\r\n      }\r\n      else {\r\n        players.push(player.name);\r\n      }\r\n    })\r\n\r\n    return players;\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Runs.js?");
 
 /***/ }),
 
@@ -453,6 +537,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./src/vue/leaderboards/run.vue":
+/*!**************************************!*\
+  !*** ./src/vue/leaderboards/run.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./run.vue?vue&type=template&id=0af944d4& */ \"./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4&\");\n/* harmony import */ var _run_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./run.vue?vue&type=script&lang=js& */ \"./src/vue/leaderboards/run.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _run_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/vue/leaderboards/run.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/vue/leaderboards/run.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/run.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./src/vue/leaderboards/run.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_run_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./run.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/run.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_run_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/vue/leaderboards/run.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4&":
+/*!*********************************************************************!*\
+  !*** ./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4& ***!
+  \*********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./run.vue?vue&type=template&id=0af944d4& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/run.vue?vue&type=template&id=0af944d4&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_run_vue_vue_type_template_id_0af944d4___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/run.vue?");
+
+/***/ }),
+
 /***/ "./src/vue/leaderboards/series-search-result.vue":
 /*!*******************************************************!*\
   !*** ./src/vue/leaderboards/series-search-result.vue ***!
@@ -533,7 +653,79 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"store\", function() { return store; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _api_Games_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/Games.js */ \"./src/vue/api/Games.js\");\n/* harmony import */ var _api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/Leaderboards.js */ \"./src/vue/api/Leaderboards.js\");\n/* harmony import */ var _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api/Runs.js */ \"./src/vue/api/Runs.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nvue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n\r\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"].Store({\r\n  state: {\r\n    games: [],\r\n    leaderboards: []\r\n  },\r\n  mutations: {\r\n    SET_GAMES(state, value){\r\n      state.games = value;\r\n    },\r\n    SET_LEADERBOARDS(state, value) {\r\n      state.leaderboards = value;\r\n    }\r\n  },\r\n  actions: {\r\n    GET_LEADERBOARDS(context, payload){\r\n      _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\r\n      .getBySeriesId(payload)\r\n      .then(response => {\r\n        context.commit(\"SET_GAMES\", response.data);\r\n      })\r\n      .then(() =>{\r\n        return Promise.all(_api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].getLeaderboardPromises(context.state.games));\r\n      })\r\n      .then(response => {\r\n        context.commit(\"SET_LEADERBOARDS\", response);\r\n      })\r\n    }\r\n  },\r\n  getters: {\r\n    view(state, getters) {\r\n      let games = _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].mapGamesToView(state.games);\r\n\r\n      let flattenedCategories =\r\n        games\r\n        .map(g => g.categories)\r\n        .flat();\r\n\r\n      //add leaderboards to category\r\n      state.leaderboards.forEach(l => {\r\n        let category =\r\n          flattenedCategories.find( c => c.id == l.data.category);\r\n\r\n        if(category){\r\n          category.players = l.data.players.data;\r\n          category.variables = l.data.variables;\r\n          category.runs = _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"].mapRunsToView(l.data.runs, category.players);\r\n        }\r\n      })\r\n\r\n      //sort games by release date\r\n      return games\r\n      .sort((a,b) => {\r\n        var dateA = new Date(a.releaseDate);\r\n        var dateB = new Date(b.releaseDate);\r\n        return dateA - dateB;\r\n      });\r\n    }\r\n  }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/store/LeaderboardStore.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"store\", function() { return store; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _api_Games_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/Games.js */ \"./src/vue/api/Games.js\");\n/* harmony import */ var _api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/Leaderboards.js */ \"./src/vue/api/Leaderboards.js\");\n/* harmony import */ var _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api/Runs.js */ \"./src/vue/api/Runs.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nvue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n\r\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"].Store({\r\n  state: {\r\n    games: [],\r\n    leaderboards: []\r\n  },\r\n  mutations: {\r\n    SET_GAMES(state, value){\r\n      state.games = value;\r\n    },\r\n    SET_LEADERBOARDS(state, value) {\r\n      state.leaderboards = value;\r\n    }\r\n  },\r\n  actions: {\r\n    GET_LEADERBOARDS(context, payload){\r\n      _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\r\n      .getBySeriesId(payload)\r\n      .then(response => {\r\n        context.commit(\"SET_GAMES\", response.data);\r\n      })\r\n      .then(() =>{\r\n        return Promise.all(_api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].getLeaderboardPromisesByGame(context.state.games));\r\n      })\r\n      .then(response => {\r\n        console.log(response);\r\n        context.commit(\"SET_LEADERBOARDS\", response);\r\n      })\r\n    }\r\n  },\r\n  getters: {\r\n    view(state, getters) {\r\n      let games = _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].mapGamesToView(state.games);\r\n\r\n      let flattenedCategories =\r\n        games\r\n        .map(g => g.categories)\r\n        .flat();\r\n\r\n      //add leaderboards to category\r\n      state.leaderboards.forEach(l => {\r\n        let category =\r\n          flattenedCategories.find( c => c.id == l.data.category);\r\n\r\n        if(category){\r\n          category.players = l.data.players.data;\r\n          category.variables = l.data.variables.data;\r\n          category.runs = _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"].mapRunsToView(l.data.runs, category.players);\r\n        }\r\n      })\r\n\r\n      games = games.sort((a,b) => {\r\n        var dateA = new Date(a.releaseDate);\r\n        var dateB = new Date(b.releaseDate);\r\n        return dateA - dateB;\r\n      });\r\n\r\n      //sort games by release date\r\n      return games;\r\n    }\r\n  }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/store/LeaderboardStore.js?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-chooser.vue":
+/*!***************************************************!*\
+  !*** ./src/vue/leaderboards/variable-chooser.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variable-chooser.vue?vue&type=template&id=e20ad21e& */ \"./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e&\");\n/* harmony import */ var _variable_chooser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./variable-chooser.vue?vue&type=script&lang=js& */ \"./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _variable_chooser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/vue/leaderboards/variable-chooser.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-chooser.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_variable_chooser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./variable-chooser.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-chooser.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_chooser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-chooser.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e&":
+/*!**********************************************************************************!*\
+  !*** ./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./variable-chooser.vue?vue&type=template&id=e20ad21e& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-chooser.vue?vue&type=template&id=e20ad21e&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_chooser_vue_vue_type_template_id_e20ad21e___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-chooser.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-option.vue":
+/*!**************************************************!*\
+  !*** ./src/vue/leaderboards/variable-option.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variable-option.vue?vue&type=template&id=97157fa2& */ \"./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2&\");\n/* harmony import */ var _variable_option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./variable-option.vue?vue&type=script&lang=js& */ \"./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _variable_option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/vue/leaderboards/variable-option.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-option.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_variable_option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./variable-option.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-option.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-option.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2&":
+/*!*********************************************************************************!*\
+  !*** ./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./variable-option.vue?vue&type=template&id=97157fa2& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/variable-option.vue?vue&type=template&id=97157fa2&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_variable_option_vue_vue_type_template_id_97157fa2___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/variable-option.vue?");
 
 /***/ })
 

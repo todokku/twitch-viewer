@@ -27,9 +27,10 @@ export const store = new Vuex.Store({
         context.commit("SET_GAMES", response.data);
       })
       .then(() =>{
-        return Promise.all(LeaderboardsApi.getLeaderboardPromises(context.state.games));
+        return Promise.all(LeaderboardsApi.getLeaderboardPromisesByGame(context.state.games));
       })
       .then(response => {
+        console.log(response);
         context.commit("SET_LEADERBOARDS", response);
       })
     }
@@ -50,18 +51,19 @@ export const store = new Vuex.Store({
 
         if(category){
           category.players = l.data.players.data;
-          category.variables = l.data.variables;
+          category.variables = l.data.variables.data;
           category.runs = RunsApi.mapRunsToView(l.data.runs, category.players);
         }
       })
 
-      //sort games by release date
-      return games
-      .sort((a,b) => {
+      games = games.sort((a,b) => {
         var dateA = new Date(a.releaseDate);
         var dateB = new Date(b.releaseDate);
         return dateA - dateB;
       });
+
+      //sort games by release date
+      return games;
     }
   }
 })

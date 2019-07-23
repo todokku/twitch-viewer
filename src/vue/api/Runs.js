@@ -4,6 +4,7 @@ export default {
       .map(r => {
         return {
           place: r.place,
+          id: r.run.id,
           date: r.run.date,
           weblink: r.run.weblink,
           players: this.getPlayersFromRun(r.run.players, players),
