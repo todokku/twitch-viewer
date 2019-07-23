@@ -17,6 +17,18 @@ export const store = new Vuex.Store({
     },
     SET_LEADERBOARDS(state, value) {
       state.leaderboards = value;
+    },
+    UPDATE_LEADERBOARD(state, payload){
+      console.log(payload);
+      var newLeaderboards = state.leaderboards
+        .filter(l =>
+          !(l.data.category == payload.data.category && l.data.game == payload.data.game)
+        );
+
+      console.log(newLeaderboards);
+
+      newLeaderboards.push(payload);
+      state.leaderboards = newLeaderboards;
     }
   },
   actions: {
@@ -60,6 +72,7 @@ export const store = new Vuex.Store({
           );
 
         if(category && l.data){
+          category.gameId = l.data.game;
           category.players = l.data.players.data;
           category.variables = variables;
           category.runs = RunsApi.mapRunsToView(l.data.runs, category.players);

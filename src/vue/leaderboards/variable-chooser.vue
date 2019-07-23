@@ -6,6 +6,8 @@
         v-bind:option="option"
         v-bind:key="option.id"
         v-bind:selected-value="selectedValue"
+        v-bind:game-id="gameId"
+        v-bind:category-id="categoryId"
       >
       </VariableOption>
     </ul>
@@ -15,7 +17,9 @@
 import VariableOption from './variable-option.vue'
 export default {
   props: {
-    variable: Object
+    variable: Object,
+    gameId: String,
+    categoryId: String
   },
   computed: {
     options() {
