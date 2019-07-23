@@ -10,15 +10,27 @@
         </div>
       </div>
     </section>
+    <Game
+      v-for="game in games"
+      v-bind:game="game"
+      v-bind:key="game.id"
+    >
+    </Game>
   </div>
-
 </template>
 
 <script>
+import Game from './game.vue'
 import SeriesSearch from './series-search.vue'
 
 export default {
+  computed: {
+    games() {
+      return this.$store.getters.view;
+    }
+  },
   components: {
+    Game,
     SeriesSearch
   }
 }

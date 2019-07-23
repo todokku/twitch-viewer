@@ -119,6 +119,30 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/category.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/category.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  props: {\n    category: Object\n  }\n});\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/game.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/game.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _category_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category.vue */ \"./src/vue/leaderboards/category.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  props: {\r\n    game: Object\r\n  },\r\n  components: {\r\n    Category: _category_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/game.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/leaderboard-layout.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/leaderboard-layout.vue?vue&type=script&lang=js& ***!
@@ -127,7 +151,7 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _series_search_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./series-search.vue */ \"./src/vue/leaderboards/series-search.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  components: {\r\n    SeriesSearch: _series_search_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/leaderboard-layout.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.vue */ \"./src/vue/leaderboards/game.vue\");\n/* harmony import */ var _series_search_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./series-search.vue */ \"./src/vue/leaderboards/series-search.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  computed: {\r\n    games() {\r\n      return this.$store.getters.view;\r\n    }\r\n  },\r\n  components: {\r\n    Game: _game_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\r\n    SeriesSearch: _series_search_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/leaderboard-layout.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -155,6 +179,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"h3\", { staticClass: \"title is-4\" }, [\n      _vm._v(_vm._s(_vm.category.name))\n    ]),\n    _vm._v(\" \"),\n    _vm._m(0)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"table\", { staticClass: \"table is-striped\" }, [_c(\"tbody\")])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"section\", { staticClass: \"section\" }, [\n    _c(\n      \"div\",\n      { staticClass: \"container\" },\n      [\n        _c(\"h2\", { staticClass: \"title is-3\" }, [\n          _vm._v(_vm._s(_vm.game.name))\n        ]),\n        _vm._v(\" \"),\n        _vm._l(_vm.game.categories, function(category) {\n          return _c(\"Category\", {\n            key: category.id,\n            attrs: { category: category }\n          })\n        })\n      ],\n      2\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/game.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/leaderboard-layout.vue?vue&type=template&id=1caf2fc1&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/vue/leaderboards/leaderboard-layout.vue?vue&type=template&id=1caf2fc1& ***!
@@ -163,7 +211,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"section\", { staticClass: \"section>\" }, [\n      _c(\"div\", { staticClass: \"container\" }, [\n        _c(\"h1\", { staticClass: \"title\" }, [_vm._v(\"Series Leaderboards\")]),\n        _vm._v(\" \"),\n        _c(\"div\", { staticClass: \"columns\" }, [\n          _c(\"div\", { staticClass: \"column is-half\" }, [_c(\"SeriesSearch\")], 1)\n        ])\n      ])\n    ])\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/leaderboard-layout.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    [\n      _c(\"section\", { staticClass: \"section>\" }, [\n        _c(\"div\", { staticClass: \"container\" }, [\n          _c(\"h1\", { staticClass: \"title\" }, [_vm._v(\"Series Leaderboards\")]),\n          _vm._v(\" \"),\n          _c(\"div\", { staticClass: \"columns\" }, [\n            _c(\n              \"div\",\n              { staticClass: \"column is-half\" },\n              [_c(\"SeriesSearch\")],\n              1\n            )\n          ])\n        ])\n      ]),\n      _vm._v(\" \"),\n      _vm._l(_vm.games, function(game) {\n        return _c(\"Game\", { key: game.id, attrs: { game: game } })\n      })\n    ],\n    2\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/leaderboard-layout.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -245,7 +293,31 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getBySeriesId(series_id){\r\n    const url = `https://www.speedrun.com/api/v1/series/${series_id}/games?embed=categories,variables`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Games.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getBySeriesId(series_id){\r\n    const url = `https://www.speedrun.com/api/v1/series/${series_id}/games?embed=categories`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n  mapGamesToView(games){\r\n    return games.map(g => {\r\n      return {\r\n        id: g.id,\r\n        name: g.names.international,\r\n        releaseDate: g[\"release-date\"],\r\n        categories: g.categories.data.map(c => {\r\n          return {\r\n            id: c.id,\r\n            name: c.name\r\n          }\r\n        })\r\n      }\r\n    });\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Games.js?");
+
+/***/ }),
+
+/***/ "./src/vue/api/Leaderboards.js":
+/*!*************************************!*\
+  !*** ./src/vue/api/Leaderboards.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  getLeaderboardPromises(games) {\r\n    let leaderboardPromises = [];\r\n\r\n    games.forEach((g) => {\r\n      g.categories.data\r\n        .filter(c => c.type == \"per-game\")\r\n        .forEach((c) => {\r\n        leaderboardPromises.push (\r\n          this.getLeaderboard(g.id, c.id)\r\n        )\r\n      })\r\n    })\r\n\r\n    return leaderboardPromises;\r\n  },\r\n\r\n  getLeaderboard(game, category){\r\n    let url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players,variables`;\r\n    return fetch(url)\r\n    .then(res => res.json());\r\n  },\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Leaderboards.js?");
+
+/***/ }),
+
+/***/ "./src/vue/api/Runs.js":
+/*!*****************************!*\
+  !*** ./src/vue/api/Runs.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  mapRunsToView(runs, players) {\r\n    let runView = runs\r\n      .map(r => {\r\n        return {\r\n          place: r.place,\r\n          date: r.run.date,\r\n          weblink: r.run.weblink,\r\n          players: this.getPlayersFromRun(r.run.players, players),\r\n          time: this.fancyTimeFormat(r.run.times.realtime_t)\r\n        }\r\n      });\r\n\r\n    return runView;\r\n  },\r\n  fancyTimeFormat(time) {\r\n    // Hours, minutes and seconds\r\n    var hrs = ~~(time / 3600);\r\n    var mins = ~~((time % 3600) / 60);\r\n    var secs = ~~time % 60;\r\n\r\n    // Output like \"1:01\" or \"4:03:59\" or \"123:03:59\"\r\n    var ret = \"\";\r\n\r\n    if (hrs > 0) {\r\n        ret += \"\" + hrs + \":\" + (mins < 10 ? \"0\" : \"\");\r\n    }\r\n\r\n    ret += \"\" + mins + \":\" + (secs < 10 ? \"0\" : \"\");\r\n    ret += \"\" + secs;\r\n    return ret;\r\n  },\r\n  getPlayersFromRun(runPlayers, allPlayers) {\r\n    let players = [];\r\n\r\n    runPlayers\r\n    .forEach(rp => {\r\n      let player = allPlayers.find(ap => ap.id == rp.id);\r\n      if(player.names){\r\n        players.push(player.names.international);\r\n      }\r\n      else {\r\n        players.push(player.name);\r\n      }\r\n    })\r\n\r\n    return players;\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/vue/api/Runs.js?");
 
 /***/ }),
 
@@ -270,6 +342,78 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _leaderboard_layout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./leaderboard-layout.vue */ \"./src/vue/leaderboards/leaderboard-layout.vue\");\n/* harmony import */ var _store_LeaderboardStore_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/LeaderboardStore.js */ \"./src/vue/leaderboards/store/LeaderboardStore.js\");\n\r\n\r\n\r\n\r\n\r\nnew vue__WEBPACK_IMPORTED_MODULE_0___default.a({\r\n  el: '#app',\r\n  store: _store_LeaderboardStore_js__WEBPACK_IMPORTED_MODULE_2__[\"store\"],\r\n  components: {\r\n    LeaderboardLayout: _leaderboard_layout_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\r\n  }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/app.js?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/category.vue":
+/*!*******************************************!*\
+  !*** ./src/vue/leaderboards/category.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category.vue?vue&type=template&id=b71b7bf6& */ \"./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6&\");\n/* harmony import */ var _category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./category.vue?vue&type=script&lang=js& */ \"./src/vue/leaderboards/category.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/vue/leaderboards/category.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/category.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./src/vue/leaderboards/category.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./category.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/category.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6&":
+/*!**************************************************************************!*\
+  !*** ./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./category.vue?vue&type=template&id=b71b7bf6& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/category.vue?vue&type=template&id=b71b7bf6&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_b71b7bf6___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/category.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/game.vue":
+/*!***************************************!*\
+  !*** ./src/vue/leaderboards/game.vue ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.vue?vue&type=template&id=8691730e& */ \"./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e&\");\n/* harmony import */ var _game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game.vue?vue&type=script&lang=js& */ \"./src/vue/leaderboards/game.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/vue/leaderboards/game.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/vue/leaderboards/game.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/game.vue?vue&type=script&lang=js&":
+/*!****************************************************************!*\
+  !*** ./src/vue/leaderboards/game.vue?vue&type=script&lang=js& ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./game.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/game.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/vue/leaderboards/game.vue?");
+
+/***/ }),
+
+/***/ "./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e&":
+/*!**********************************************************************!*\
+  !*** ./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e& ***!
+  \**********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./game.vue?vue&type=template&id=8691730e& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/vue/leaderboards/game.vue?vue&type=template&id=8691730e&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_game_vue_vue_type_template_id_8691730e___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/game.vue?");
 
 /***/ }),
 
@@ -389,7 +533,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"store\", function() { return store; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _api_Games_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/Games.js */ \"./src/vue/api/Games.js\");\n\r\n\r\n\r\n\r\nvue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n\r\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"].Store({\r\n  state: {\r\n    games: []\r\n  },\r\n  mutations: {\r\n    SET_GAMES(state, value){\r\n      state.games = value;\r\n    }\r\n  },\r\n  actions: {\r\n    GET_LEADERBOARDS(context, payload){\r\n      _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\r\n      .getBySeriesId(payload)\r\n      .then(response => {\r\n        context.commit(\"SET_GAMES\", response.data);\r\n        this.test();\r\n      })\r\n    }\r\n  }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/store/LeaderboardStore.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"store\", function() { return store; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n/* harmony import */ var _api_Games_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/Games.js */ \"./src/vue/api/Games.js\");\n/* harmony import */ var _api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/Leaderboards.js */ \"./src/vue/api/Leaderboards.js\");\n/* harmony import */ var _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api/Runs.js */ \"./src/vue/api/Runs.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nvue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n\r\nconst store = new vuex__WEBPACK_IMPORTED_MODULE_1__[\"default\"].Store({\r\n  state: {\r\n    games: [],\r\n    leaderboards: []\r\n  },\r\n  mutations: {\r\n    SET_GAMES(state, value){\r\n      state.games = value;\r\n    },\r\n    SET_LEADERBOARDS(state, value) {\r\n      state.leaderboards = value;\r\n    }\r\n  },\r\n  actions: {\r\n    GET_LEADERBOARDS(context, payload){\r\n      _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\r\n      .getBySeriesId(payload)\r\n      .then(response => {\r\n        context.commit(\"SET_GAMES\", response.data);\r\n      })\r\n      .then(() =>{\r\n        return Promise.all(_api_Leaderboards_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].getLeaderboardPromises(context.state.games));\r\n      })\r\n      .then(response => {\r\n        context.commit(\"SET_LEADERBOARDS\", response);\r\n      })\r\n    }\r\n  },\r\n  getters: {\r\n    view(state, getters) {\r\n      let games = _api_Games_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].mapGamesToView(state.games);\r\n\r\n      let flattenedCategories =\r\n        games\r\n        .map(g => g.categories)\r\n        .flat();\r\n\r\n      //add leaderboards to category\r\n      state.leaderboards.forEach(l => {\r\n        let category =\r\n          flattenedCategories.find( c => c.id == l.data.category);\r\n\r\n        if(category){\r\n          category.players = l.data.players.data;\r\n          category.variables = l.data.variables;\r\n          category.runs = _api_Runs_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"].mapRunsToView(l.data.runs, category.players);\r\n        }\r\n      })\r\n\r\n      //sort games by release date\r\n      return games\r\n      .sort((a,b) => {\r\n        var dateA = new Date(a.releaseDate);\r\n        var dateB = new Date(b.releaseDate);\r\n        return dateA - dateB;\r\n      });\r\n    }\r\n  }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/vue/leaderboards/store/LeaderboardStore.js?");
 
 /***/ })
 
