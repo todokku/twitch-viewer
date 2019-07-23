@@ -36,33 +36,10 @@
   </div>
 </nav>
 
-  <section class="section>">
-    <div class="container">
-      <h1 class="title">Series Leaderboards</h1>
-        <form id="form">
-          <div class="field is-grouped">
-            <div class="control">
-              <input class="input" type="text" id="seriesNameInput" placeholder="Series">
-            </div>
-            <div class="control">
-              <input type="submit" class="button is-link" value="Find Series"/>
-            </div>
-          </div>
-        </form>
-    </div>
-  </section>
 
-  <div id="series-target"></div>
-  <div id="leaderboard-target"></div>
-
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script src='js/leaderboards.js'></script>
-  <script src=></script>
-  <script>
-    leaderboards.init();
-  </script>
+<div id="app">
+  <leaderboard-layout></leaderboard-layout>
+</div>
+  <script src="js/leaderboards.js"></script>
 </body>
 </html>

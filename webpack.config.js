@@ -1,4 +1,5 @@
 require("dotenv").config();
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const webpack = require("webpack");
 const path = require('path');
@@ -8,7 +9,8 @@ module.exports = {
   entry: {
     users: "./src/js/users.js",
     follows: "./src/js/follows.js",
-    speedruns: "./src/js/speedruns.js"
+    speedruns: "./src/js/speedruns.js",
+    leaderboards: "./src/vue/leaderboards/app.js"
   },
   output: {
     filename: '[name].js',
@@ -18,6 +20,20 @@ module.exports = {
     new webpack.DefinePlugin({
       TWITCH_CLIENT_ID: JSON.stringify(process.env.TWITCH_CLIENT_ID),
       API_BASE_URL: JSON.stringify(process.env.API_BASE_URL)
-    })
-  ]
+    }),
+    new VueLoaderPlugin()
+  ],
+  resolve: {
+  alias: {
+    vue: 'vue/dist/vue.js'
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  }
 };
