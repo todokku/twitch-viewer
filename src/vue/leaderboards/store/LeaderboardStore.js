@@ -19,6 +19,13 @@ export const store = new Vuex.Store({
       state.leaderboards = value;
     },
     UPDATE_LEADERBOARD(state, payload){
+      state.leaderboards
+      .forEach(l => {
+        if(!l.data) {
+          console.log(l);
+        }
+      })
+
       //get all of the leaderboards except the one to be updated
       var newLeaderboards = state.leaderboards
         .filter(l =>

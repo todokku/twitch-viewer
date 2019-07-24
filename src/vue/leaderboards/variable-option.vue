@@ -25,17 +25,43 @@ export default {
       else {
         return "";
       }
-    }
+    },
   },
   methods: {
     handleItemClick() {
-      const variable = {
+      var currentVariablesObject =
+        this.$store.getters.view
+        .map(g => g.categories)
+        .flat()
+        .find(c => { return c.id == this.categoryId})
+        .values;
+
+      var currentVariables = [];
+
+      Object.keys(currentVariablesObject).forEach(function(key,index) {
+        // key: the name of the object key
+        // index: the ordinal position of the key within the object
+        var value = {
+          id: key,
+          value: currentVariablesObject[key]
+        }
+
+        currentVariables.push(value);
+      });
+
+      const updatedVariable = {
         id: this.option.variableId,
         value: this.option.value
       }
 
+      var newVariables =
+        currentVariables
+        .filter(v => v.id != updatedVariable.id);
+
+      newVariables.push(updatedVariable);
+
       LeaderboardsApi
-      .getLeaderboard(this.gameId, this.categoryId, variable)
+      .getLeaderboard(this.gameId, this.categoryId, newVariables)
       .then(response => {
         this.$store.commit("UPDATE_LEADERBOARD", response)
       })

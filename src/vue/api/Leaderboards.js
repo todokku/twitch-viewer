@@ -11,21 +11,31 @@ export default {
 
         //if a category has variables, get the board with the default value
         if(g.variables.data.length > 0) {
-          var categoryVariable = g
+          var categoryVariables = g
             .variables.data
-            .find(v =>
+            .filter(v =>
               v.category == c.id ||
               (v.category == null && v["is-subcategory"] == true) //some variables are game global
             );
 
-          if(categoryVariable) {
-            var defaultVariable = {
-              id: categoryVariable.id,
-              value: categoryVariable.values.default
-            };
+          if(categoryVariables) {
+            var defaultVariables = [];
+
+            categoryVariables.forEach(v => {
+              var value = v.values.default;
+              if(!value) { //some variables do not have default values
+                value = Object.keys(v.values.choices)[0];
+              }
+              var variable = {
+                id: v.id,
+                value: value
+              }
+
+              defaultVariables.push(variable);
+            });
 
             leaderboardPromises.push (
-              this.getLeaderboard(g.id, c.id, defaultVariable)
+              this.getLeaderboard(g.id, c.id, defaultVariables)
             )
           }
           else {
@@ -44,11 +54,13 @@ export default {
 
     return leaderboardPromises;
   },
-  getLeaderboard(game, category, variable){
+  getLeaderboard(game, category, variables){
     let url = `https://www.speedrun.com/api/v1/leaderboards/${game}/category/${category}?embed=players,variables`;
 
-    if(variable) {
-      url +=`&var-${variable.id}=${variable.value}`;
+    if(variables) {
+      variables.forEach(v => {
+        url +=`&var-${v.id}=${v.value}`;
+      })
     }
 
     return fetch(url)
