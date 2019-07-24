@@ -7,6 +7,7 @@
       v-bind:key="variable.id"
       v-bind:game-id="category.gameId"
       v-bind:category-id="category.id"
+      v-bind:values="category.values"
     >
     </VariableChooser>
     <table class="table is-striped">

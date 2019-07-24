@@ -19,13 +19,11 @@ export const store = new Vuex.Store({
       state.leaderboards = value;
     },
     UPDATE_LEADERBOARD(state, payload){
-      console.log(payload);
+      //get all of the leaderboards except the one to be updated
       var newLeaderboards = state.leaderboards
         .filter(l =>
           !(l.data.category == payload.data.category && l.data.game == payload.data.game)
         );
-
-      console.log(newLeaderboards);
 
       newLeaderboards.push(payload);
       state.leaderboards = newLeaderboards;
@@ -75,6 +73,7 @@ export const store = new Vuex.Store({
           category.gameId = l.data.game;
           category.players = l.data.players.data;
           category.variables = variables;
+          category.values = l.data.values;
           category.runs = RunsApi.mapRunsToView(l.data.runs, category.players);
         }
       })

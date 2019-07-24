@@ -13,7 +13,10 @@ export default {
         if(g.variables.data.length > 0) {
           var categoryVariable = g
             .variables.data
-            .find(v => v.category == c.id);
+            .find(v =>
+              v.category == c.id ||
+              (v.category == null && v["is-subcategory"] == true) //some variables are game global
+            );
 
           if(categoryVariable) {
             var defaultVariable = {

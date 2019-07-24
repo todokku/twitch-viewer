@@ -13,7 +13,7 @@
       {{run.date}}
     </td>
     <td>
-      <a v-bind:href="run.place">
+      <a v-bind:href="run.weblink">
         Link
       </a>
     </td>

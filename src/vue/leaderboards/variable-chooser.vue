@@ -19,7 +19,8 @@ export default {
   props: {
     variable: Object,
     gameId: String,
-    categoryId: String
+    categoryId: String,
+    values: Object
   },
   computed: {
     options() {
@@ -42,7 +43,8 @@ export default {
       return options;
     },
     selectedValue() {
-      return this.variable.values.default;
+      var variableId = this.variable.id;
+      return this.values[variableId];
     }
   },
 
