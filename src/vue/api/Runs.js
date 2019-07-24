@@ -7,6 +7,7 @@ export default {
           id: r.run.id,
           date: r.run.date,
           weblink: r.run.weblink,
+          playersObject: r.run.players,
           players: this.getPlayersFromRun(r.run.players, players),
           time: this.fancyTimeFormat(r.run.times.realtime_t)
         }
@@ -41,7 +42,7 @@ export default {
         players.push(player.names.international);
       }
       else {
-        players.push(player.name);
+        players.push(rp.name);
       }
     })
 
