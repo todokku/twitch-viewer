@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Speedruns and WR Progressions</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <img src="../img/Glitch_White_RGB.png"  height="28">
+      </a>
+      <a class="navbar-item" href="#">Twitch Utils</a>
+    </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="users.html">
+        Users
+      </a>
+      <a class="navbar-item" href="follows.html">
+        Follows
+      </a>
+      <a class="navbar-item" href="leaderboards.html">
+        Leaderboards
+      </a>
+      <a class="navbar-item" href="runs.html">
+        Speedruns
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <section class="section>">
+    <div class="container">
+      <h1 class="title">Speedruns and WR Progressions</h1>
+        <form id="form">
+          <div class="field is-grouped">
+            <div class="control">
+              <input class="input" type="text" id="gameNameInput" placeholder="Game">
+            </div>
+            <div class="control">
+              <input type="submit" class="button is-link" value="Find Games"/>
+            </div>
+          </div>
+        </form>
+    </div>
+  </section>
+
+  <div id="games-target"></div>
+  <div id="runs-target"></div>
+  <div id="wrs-target"></div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+  <script src='js/runs.js'></script>
+  <script>
+    runs.init();
+  </script>
+</body>
+</html>
