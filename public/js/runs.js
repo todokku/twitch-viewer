@@ -88,6 +88,8 @@ var runs = (function () {
       return dateA - dateB;
     });
 
+    console.log(runs);
+
     var worldRecords = [];
 
     worldRecords.push(runs[0]);
@@ -189,7 +191,6 @@ var runs = (function () {
 
   function makeRunTemplate(data){
     let newList = '';
-    console.log(data);
 
     data.forEach(function(object){
       var playerName = "";
