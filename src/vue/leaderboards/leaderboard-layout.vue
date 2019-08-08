@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="section>">
+    <section class="section">
       <div class="container">
         <h1 class="title">Series Leaderboards</h1>
         <div class="columns">

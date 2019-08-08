@@ -12,10 +12,15 @@
 <body>
   <nav class="navbar is-link" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <img src="../img/Glitch_White_RGB.png"  height="28">
+      <a class="navbar-item" href="index.html">
+        <img src="img/Glitch_White_RGB.png"  height="28">
       </a>
-      <a class="navbar-item" href="#">Twitch Utils</a>
+      <a class="navbar-item" href="index.html">Twitch Utils</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
@@ -37,9 +42,15 @@
 </nav>
 
 
-<div id="app">
-  <leaderboard-layout></leaderboard-layout>
-</div>
+  <div id="app">
+    <leaderboard-layout></leaderboard-layout>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="js/navbar-burger.js"></script>
   <script src="js/leaderboards.js"></script>
 </body>
 </html>

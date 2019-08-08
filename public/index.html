@@ -1,2 +1,84 @@
-blah!
-this is a test
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Twitch and Speedrun Utilities</title>
+
+   <link rel="stylesheet" href="css/bulma.min.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <style>
+     dd {
+       margin-bottom: 3rem !important;
+     }
+     .subtitle:not(.is-spaced) + .title {
+
+     }
+   </style>
+</head>
+
+<body>
+  <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">
+        <img src="img/Glitch_White_RGB.png"  height="28">
+      </a>
+      <a class="navbar-item" href="index.html">Twitch Utils</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="users.html">
+        Users
+      </a>
+      <a class="navbar-item" href="follows.html">
+        Follows
+      </a>
+      <a class="navbar-item" href="leaderboards.html">
+        Leaderboards
+      </a>
+      <a class="navbar-item" href="runs.html">
+        Speedruns
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Twitch and Speedrun Utilities</h1>
+      <dl>
+        <dt class="title is-4">
+          <a href="users.html">Users</a>
+        </dt>
+        <dd class="subtitle">Searches Twitch users by user name or user id. Returns the profile picture, user name, user id, and view count.</dd>
+        <dt class="title is-4">
+          <a href="follows.html">Follows</a>
+        </dt>
+        <dd class="subtitle">Given a Twitch user id, gets that user's follows, then displays which of those channels are live. Also generates links for MultiTwitch and chat popouts.</dd>
+        <dt class="title is-4">
+          <a href="leaderboards.html">Leaderboards</a>
+        </dt>
+        <dd class="subtitle">Returns leaderboards by series on Speedrun.com.</dd>
+        <dt class="title is-4">
+          <a href="runs.html">Speedruns</a>
+        </dt>
+        <dd class="subtitle">Returns <em>all</em> runs for a game, not just current leaderboards. Also displays World Record progression tables and charts.</dd>
+      </dl>
+    </div>
+  </section>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="js/navbar-burger.js"></script>
+</body>
+</html>
