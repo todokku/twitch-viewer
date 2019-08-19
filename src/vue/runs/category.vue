@@ -97,21 +97,6 @@ export default{
 
         return filteredRuns;
       }
-      // else {
-      //   let filteredRuns = [];
-      //   unfilteredRuns.forEach(r => {
-      //     let runValues = runs.values;
-      //     let selectedCategoryValues =
-      //       this.categoryVariables
-      //       .values.values
-      //       .filter(v => v.selected);
-      //
-      //     console.log(runValues);
-      //     console.log(selectedCategoryValues);
-      //   });
-      //
-      //   return unfilteredRuns;
-      // }
     },
     categoryId(){
       if(this.runs.length < 1) {

@@ -45,7 +45,11 @@ export const store = new Vuex.Store({
 
         //set game variables
         //set selectedValue to default variable
-        gameVariables.forEach(v => {
+        gameVariables
+        .filter(v =>
+          v.category || v["is-subcategory"] == true //some variables are game global
+        )
+        .forEach(v => {
           let defaultVariableString = v.values.default;
           v.values.values[defaultVariableString].selected = true;
         })
@@ -57,14 +61,18 @@ export const store = new Vuex.Store({
 
         context.commit("SET_RUNS", groupedRuns);
       })
+    },
+    UPDATE_GAME_VARIABLES(context, payload) {
+      let game_variables = context.state.game_variables;
 
+      let variable = game_variables.find(v => v.id == payload.id);
 
-      // .then((response) => {
-      //   const grouped = Utils.groupBy(response, run => run.category.data.name);
-      //   const groupedRuns = Array.from(grouped);
-      //
-      //   context.commit("SET_RUNS", groupedRuns);
-      // });
+      let values = variable.values.values;
+      let keys = Object.keys(values);
+      keys.forEach(k => {
+        values[k].selected = false;
+      })
+      values[payload.value].selected = true;
     }
   },
 })

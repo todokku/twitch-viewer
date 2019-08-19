@@ -16,9 +16,7 @@ import VariableOption from './variable-option.vue'
 export default {
   props: {
     variable: Object,
-    gameId: String,
     categoryId: String,
-    values: Object
   },
   computed: {
     options() {
