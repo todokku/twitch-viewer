@@ -10,7 +10,8 @@ module.exports = {
     users: "./src/js/users.js",
     follows: "./src/js/follows.js",
     speedruns: "./src/js/speedruns.js",
-    leaderboards: "./src/vue/leaderboards/app.js"
+    leaderboards: "./src/vue/leaderboards/app.js",
+    runs: "./src/vue/runs/app.js"
   },
   output: {
     filename: '[name].js',

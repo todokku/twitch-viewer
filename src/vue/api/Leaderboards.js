@@ -24,7 +24,7 @@ export default {
             categoryVariables.forEach(v => {
               var value = v.values.default;
               if(!value) { //some variables do not have default values
-                value = Object.keys(v.values.choices)[0];
+                value = Object.keys(v.values.values)[0];
               }
               var variable = {
                 id: v.id,

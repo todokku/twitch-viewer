@@ -47,5 +47,27 @@ export default {
     })
 
     return players;
+  },
+  runPromise(game_id) {
+    return new Promise((resolve, reject) => {
+      this.getRuns(`https://www.speedrun.com/api/v1/runs?game=${game_id}&embed=players,category`, [], resolve, reject)
+    })
+  },
+  getRuns(url, runs, resolve, reject){
+    $.ajax({url: url})
+    .then(response => {
+      const retrievedRuns = runs.concat(response.data);
+      var nextPageUrl = response.pagination.links.find(x => x.rel == "next");
+      if(nextPageUrl) {
+        this.getRuns(nextPageUrl.uri, retrievedRuns, resolve, reject)
+      }
+      else {
+        resolve(retrievedRuns);
+      }
+    })
+    .catch(error => {
+      console.log(error)
+      reject('Something wrong. Please refresh the page and try again.')
+    });
   }
 }
