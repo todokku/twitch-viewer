@@ -28,6 +28,12 @@
           </RunRow>
         </tbody>
       </table>
+      <WorldRecords
+        v-bind:runs="runs"
+        v-bind:category-id="category.categoryId"
+        v-bind:category-name="category.category"
+      >
+    </WorldRecords>
     </div>
   </section>
 </template>
@@ -35,13 +41,15 @@
 
 import RunRow from './run-row.vue'
 import VariableChooser from './variable-chooser.vue'
+import WorldRecords from './world-records.vue'
 export default{
   props: {
     category: Object
   },
   components: {
     RunRow,
-    VariableChooser
+    VariableChooser,
+    WorldRecords
   },
   computed: {
     runs() {

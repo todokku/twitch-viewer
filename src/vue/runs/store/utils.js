@@ -28,5 +28,13 @@ export default {
     ret += "" + mins + ":" + (secs < 10 ? "0" : "");
     ret += "" + secs;
     return ret;
-}
+  },
+  sortRuns(runs) {
+    return runs.sort((a,b) => {
+      var dateA = new Date(a.date);
+      var dateB = new Date(b.date);
+
+      return dateA - dateB;
+    });
+  }
 }

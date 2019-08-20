@@ -53,7 +53,6 @@ export const store = new Vuex.Store({
           let defaultVariableString = v.values.default;
           v.values.values[defaultVariableString].selected = true;
         })
-        //context.commit("SET_GAME_VARIABLES", gameVariables);
 
         //group the runs by category
         const grouped = Utils.groupBy(runs, run => run.category.data.name);
@@ -64,14 +63,14 @@ export const store = new Vuex.Store({
             return {
               category: r[0],
               categoryId: gameCategories.find(x => {return x.name == r[0]}).id,
-              runs: r[1],
+              runs: Utils.sortRuns(r[1]),
               variables: []
             }
           })
 
         categories.forEach(c => {
           gameVariables.forEach(v => {
-            if(v.category == c.category || (v.category == null && v["is-subcategory"] == true)){
+            if(v.category == c.categoryId || (v.category == null && v["is-subcategory"] == true)){
               let variableValues = Object.keys(v.values.values);
 
               let newVariable = {
