@@ -6,6 +6,7 @@
           <input
             class="input"
             type="text"
+            name="series"
             v-model="seriesQuery"
             placeholder="Series"
           >

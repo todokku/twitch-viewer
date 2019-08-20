@@ -16,12 +16,17 @@
       v-bind:key="game.id"
     >
     </Game>
+    <LongestStandingWRs
+      v-bind:games="games"
+    >
+    </LongestStandingWRs>
   </div>
 </template>
 
 <script>
 import Game from './game.vue'
 import SeriesSearch from './series-search.vue'
+import LongestStandingWRs from './longest-standing-wrs.vue'
 
 export default {
   computed: {
@@ -31,7 +36,8 @@ export default {
   },
   components: {
     Game,
-    SeriesSearch
+    SeriesSearch,
+    LongestStandingWRs
   }
 }
 </script>
