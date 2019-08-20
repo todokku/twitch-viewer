@@ -1,14 +1,12 @@
 <template>
   <section class="section">
     <div class="container">
-      <h2 class="title is-3">{{category[0]}}</h2>
+      <h2 class="title is-3">{{category.category}}</h2>
       <VariableChooser
-        v-for="variable in categoryVariables"
+        v-for="variable in category.variables"
         v-bind:variable="variable"
         v-bind:key="variable.id"
-        v-bind:game-id="1"
-        v-bind:category-id="categoryId"
-        v-bind:values="1"
+        v-bind:category-id="category.categoryId"
       >
       </VariableChooser>
       <table class='table is-narrow is-striped'>
@@ -39,8 +37,7 @@ import RunRow from './run-row.vue'
 import VariableChooser from './variable-chooser.vue'
 export default{
   props: {
-    category: Array,
-    variables: Array
+    category: Object
   },
   components: {
     RunRow,
@@ -48,18 +45,13 @@ export default{
   },
   computed: {
     runs() {
-      let unfilteredRuns = this.category[1];
+      let unfilteredRuns = this.category.runs;
       if(unfilteredRuns.length < 1) {
         return [];
       }
 
       //filter the runs by variables
-      let categoryId = unfilteredRuns[0].category.data.id;
-      let categoryVariables = this.variables
-      .filter(v =>
-        v.category == categoryId ||
-        (v.category == null && v["is-subcategory"] == true) //some variables are game global
-      );
+      let categoryVariables = this.category.variables;
 
       //don't filter if there are no category variables
       if(categoryVariables.length < 1){
@@ -67,17 +59,6 @@ export default{
       }
       else {
         let filteredRuns = [];
-        let selectedCategoryValues = [];
-
-        categoryVariables.forEach(v => {
-          let keys = Object.keys(v.values.values);
-          keys.forEach(k => {
-            if(v.values.values[k].selected){
-              v.values.values[k].value = k;
-              selectedCategoryValues.push(v.values.values[k]);
-            }
-          });
-        })
 
         unfilteredRuns.forEach(r => {
             let runValues = r.values;
@@ -85,7 +66,7 @@ export default{
 
             runKeys.forEach(k => {
               var match =
-                selectedCategoryValues
+                this.selectedVariables
                 .filter(x => x.value == runValues[k]);
 
               if(match.length > 0) {
@@ -98,20 +79,19 @@ export default{
         return filteredRuns;
       }
     },
-    categoryId(){
-      if(this.runs.length < 1) {
-        return null;
-      }
-      else {
-        return this.runs[0].category.data.id;
-      }
-    },
-    categoryVariables() {
-      return this.variables
-      .filter(v =>
-        v.category == this.categoryId ||
-        (v.category == null && v["is-subcategory"] == true) //some variables are game global
-      );
+    selectedVariables() {
+      let categoryVariables = this.category.variables;
+      let selectedVariables = [];
+      categoryVariables.forEach(v => {
+          let selected = v.values.find(x => {return x.selected});
+          selectedVariables.push({
+            label: selected.label,
+            rules: selected.rules,
+            selected: selected.selected,
+            value: selected.value
+          });
+        });
+      return selectedVariables;
     }
   }
 }

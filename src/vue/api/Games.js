@@ -10,7 +10,7 @@ export default {
     .then(res => res.json());
   },
   getById(game_id){
-    const url = `https://www.speedrun.com/api/v1/games/${game_id}/variables`;
+    const url = `https://www.speedrun.com/api/v1/games/${game_id}?embed=categories,variables`;
     return fetch(url)
     .then(res => res.json());
   },

@@ -9,8 +9,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     game_search_results: [],
-    runs: [],
-    game_variables: []
+    runs: []
   },
   mutations: {
     SET_GAME_SEARCH_RESULTS(state, value) {
@@ -40,7 +39,8 @@ export const store = new Vuex.Store({
 
       Promise.all([gamePromise, runsPromise])
       .then((values) => {
-        let gameVariables = values[0].data;
+        let gameVariables = values[0].data.variables.data;
+        let gameCategories = values[0].data.categories.data;
         let runs = values[1];
 
         //set game variables
@@ -53,26 +53,69 @@ export const store = new Vuex.Store({
           let defaultVariableString = v.values.default;
           v.values.values[defaultVariableString].selected = true;
         })
-        context.commit("SET_GAME_VARIABLES", gameVariables);
+        //context.commit("SET_GAME_VARIABLES", gameVariables);
 
         //group the runs by category
         const grouped = Utils.groupBy(runs, run => run.category.data.name);
         const groupedRuns = Array.from(grouped);
 
-        context.commit("SET_RUNS", groupedRuns);
+        let categories =
+          groupedRuns.map(r => {
+            return {
+              category: r[0],
+              categoryId: gameCategories.find(x => {return x.name == r[0]}).id,
+              runs: r[1],
+              variables: []
+            }
+          })
+
+        categories.forEach(c => {
+          gameVariables.forEach(v => {
+            if(v.category == c.category || (v.category == null && v["is-subcategory"] == true)){
+              let variableValues = Object.keys(v.values.values);
+
+              let newVariable = {
+                category: v.category,
+                id: v.id,
+                isSubcategory: v["is-subcategory"],
+                name: v.name,
+                values: variableValues.map(x => {
+                  return {
+                    value: x,
+                    variableId: v.id,
+                    label: v.values.values[x].label,
+                    rules: v.values.values[x].rules,
+                    selected: v.values.values[x].selected
+                  }
+                })
+              };
+
+              c.variables = [...c.variables, newVariable];
+            }
+          })
+        })
+
+        context.commit("SET_RUNS", categories);
       })
     },
     UPDATE_GAME_VARIABLES(context, payload) {
-      let game_variables = context.state.game_variables;
+      let runs = context.state.runs;
 
-      let variable = game_variables.find(v => v.id == payload.id);
+      let category_variables =
+        runs
+        .find(x => {return x.categoryId == payload.categoryId})
+        .variables;
 
-      let values = variable.values.values;
-      let keys = Object.keys(values);
-      keys.forEach(k => {
-        values[k].selected = false;
+       let variable =
+        category_variables
+        .find(v => { return v.id == payload.id });
+
+      let values = variable.values;
+      values.forEach(v => {
+        v.selected = false;
       })
-      values[payload.value].selected = true;
+      values.find(v => { return payload.value == v.value }).selected = true;
+
     }
   },
 })
