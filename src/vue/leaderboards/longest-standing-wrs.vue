@@ -41,7 +41,7 @@
                 category: c.name,
                 date: worldRecordRun.date,
                 player: worldRecordRun.players.join(', '),
-                link: worldRecordRun.link,
+                link: worldRecordRun.weblink,
                 time: worldRecordRun.time
               }
 
