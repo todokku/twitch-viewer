@@ -43,12 +43,14 @@
       >
       </MostActiveRunners>
       </div>
-      <WorldRecords
-        v-bind:runs="runs"
-        v-bind:category-id="category.categoryId"
-        v-bind:category-name="category.category"
-      >
-    </WorldRecords>
+      <div class="columns">
+        <WorldRecords
+          v-bind:runs="runs"
+          v-bind:category-id="category.categoryId"
+          v-bind:category-name="category.category"
+        >
+        </WorldRecords>
+      </div>
     </div>
   </section>
 </template>

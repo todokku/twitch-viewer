@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-content">
         <canvas
-          style="height:200px;width:200px"
+          style="height:400px;width:400px"
           v-bind:id="categoryId + 'ActiveRunnerChart'">
         </canvas>
       </div>
@@ -16,10 +16,16 @@ export default {
     runs: Array,
     categoryId: String
   },
+  data() {
+    return {
+      chartObject: null
+    }
+  },
   mounted() {
     this.createChart();
   },
   updated() {
+    this.chartObject.destroy();
     this.createChart();
   },
   computed: {
@@ -75,7 +81,7 @@ export default {
           text: 'Top 5 Most Active Runners'
         }
       };
-      var myChart = new Chart(ctx, {
+      this.chartObject = new Chart(ctx, {
         type: 'pie',
         data: {
           labels: chartLabels,
