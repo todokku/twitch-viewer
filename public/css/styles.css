@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background: #f5f6f8;
 }
 
 table, form {
@@ -14,4 +15,8 @@ nav {
 .section {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.panel {
+  background-color: #fff;
 }

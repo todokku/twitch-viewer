@@ -7,10 +7,10 @@
       {{formatPlayers}}
     </td>
     <td>
-      {{run.time}}
-    </td>
-    <td>
       {{run.date}}
+    </td>
+    <td style="text-align: right;">
+      {{run.time}}
     </td>
     <td>
       <a v-bind:href="run.weblink">

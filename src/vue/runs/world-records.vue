@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h4 class="title is-4">World Record Progression</h4>
-    <table class='table is-narrow is-striped'>
+  <div class="column is-two-thirds-tablet">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">World Record Progression</p>
+      </header>
+      <div class="card-content">
+    <table class='table is-narrow is-striped is-fullwidth'>
       <thead>
         <tr>
           <th>Name</th>
@@ -25,6 +29,8 @@
       v-bind:category-name="categoryName"
     >
     </WorldRecordChart>
+    </div>
+  </div>
   </div>
 </template>
 <script>

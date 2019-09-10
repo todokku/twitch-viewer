@@ -2,7 +2,7 @@
   <tr>
     <td>{{playerName}}</td>
     <td>{{run.date}}</td>
-    <td>{{runTimeFormatted}}</td>
+    <td style="text-align: right;">{{runTimeFormatted}}</td>
     <td>{{run.status.status}}</td>
     <td><a v-bind:href="'https://www.speedrun.com/' + run.game + '/run/' + run.id">Link</a></td>
   </tr>

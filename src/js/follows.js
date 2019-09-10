@@ -183,26 +183,35 @@ var follows = (function () {
 
   function renderLive() {
     var template = `
-    <hr class="hr" />
-    <h2 class="title is-3">Live Streams</h2>
-    <table class='table is-narrow is-striped'>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Game</th>
-          <th>Title</th>
-          <th>Viewers</th>
-          <th>Add to List</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${makeLiveTemplate(live_streams)}
-      </tbody>
-    </table>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Live Streams
+        </p>
+      </header>
+      <div class="card-content">
+        <table class='table is-narrow is-striped'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Game</th>
+              <th>Title</th>
+              <th>Viewers</th>
+              <th>Add to List</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${makeLiveTemplate(live_streams)}
+          </tbody>
+        </table>
 
-    <div class="field">
-      <div class="control">
-        <button class="button is-link" id="createLinksButton">Create Links</button>
+        <div class="field">
+          <div class="control">
+            <button class="button is-link" id="createLinksButton">Create Links</button>
+          </div>
+        </div>
+        <div id="multi-twitch-target" class="content"></div>
+        <div id="live-chat-links" class="content"></div>
       </div>
     </div>
     `;
@@ -213,7 +222,6 @@ var follows = (function () {
   function renderMultiTwitchLink(){
 
     var template = `
-    <hr class="hr" />
     <div class="field is-hidden" id="multiTwitchField">
       <label class="label">MultiTwitch</label>
       <div class="control">

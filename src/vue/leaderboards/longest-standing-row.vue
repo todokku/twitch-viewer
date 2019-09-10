@@ -12,7 +12,7 @@
     <td>
       {{record.player}}
     </td>
-    <td>
+    <td style="text-align: right;">
       {{record.time}}
     </td>
     <td>

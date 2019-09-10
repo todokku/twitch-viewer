@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-three-quarters">
+  <div>
     <canvas
       style="height:400px;"
       v-bind:id="categoryId + 'Chart'">

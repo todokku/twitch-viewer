@@ -5,16 +5,30 @@
       class="container"
     >
       <h2 class="title is-3">Longest Standing World Records</h2>
-      <table class="table is-striped">
-        <tbody>
-          <LongestStandingRow
-            v-for="record in records"
-            v-bind:record="record"
-            v-bind:key="record.id"
-          >
-          </LongestStandingRow>
-        </tbody>
-      </table>
+      <div class="card">
+        <div class="card-content">
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Game</th>
+                <th>Category</th>
+                <th>Player</th>
+                <th>Time</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <LongestStandingRow
+                v-for="record in records"
+                v-bind:record="record"
+                v-bind:key="record.id"
+              >
+              </LongestStandingRow>
+            </tbody>
+          </table>
+        </div>
+      </div>
   </div>
 </section>
 </template>

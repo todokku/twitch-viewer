@@ -1,7 +1,12 @@
 <template>
   <section class="section">
     <div class="container">
-      <h2 class="title is-3">{{category.category}}</h2>
+      <h4 class="title is-4">{{category.category}}</h4>
+      <div class="columns">
+      <div class="column is-two-thirds-tablet">
+      <div class="card">
+      <div class="card-content">
+
       <VariableChooser
         v-for="variable in category.variables"
         v-bind:variable="variable"
@@ -9,25 +14,35 @@
         v-bind:category-id="category.categoryId"
       >
       </VariableChooser>
-      <table class='table is-narrow is-striped'>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Status</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <RunRow
-            v-for="run in runs"
-            v-bind:key="run.id"
-            v-bind:run="run"
-          >
-          </RunRow>
-        </tbody>
-      </table>
+
+          <table class='table is-narrow is-striped is-fullwidth'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <RunRow
+                v-for="run in runs"
+                v-bind:key="run.id"
+                v-bind:run="run"
+              >
+              </RunRow>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      <MostActiveRunners
+        v-bind:runs="runs"
+        v-bind:category-id="category.categoryId"
+      >
+      </MostActiveRunners>
+      </div>
       <WorldRecords
         v-bind:runs="runs"
         v-bind:category-id="category.categoryId"
@@ -42,6 +57,8 @@
 import RunRow from './run-row.vue'
 import VariableChooser from './variable-chooser.vue'
 import WorldRecords from './world-records.vue'
+import MostActiveRunners from './most-active-runners.vue'
+
 export default{
   props: {
     category: Object
@@ -49,7 +66,8 @@ export default{
   components: {
     RunRow,
     VariableChooser,
-    WorldRecords
+    WorldRecords,
+    MostActiveRunners
   },
   computed: {
     runs() {
