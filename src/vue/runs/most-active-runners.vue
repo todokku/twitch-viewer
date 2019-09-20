@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-content">
         <canvas
-          style="height:400px;width:400px"
+          height="300px"
           v-bind:id="categoryId + 'ActiveRunnerChart'">
         </canvas>
       </div>
@@ -27,6 +27,12 @@ export default {
   updated() {
     this.chartObject.destroy();
     this.createChart();
+  },
+  watch: {
+    runs: function (val, oldVal) {
+      this.chartObject.destroy();
+      this.createChart();
+    }
   },
   computed: {
     players() {

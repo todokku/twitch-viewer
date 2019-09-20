@@ -14,8 +14,18 @@ export default {
     categoryId: String,
     categoryName: String
   },
+  data() {
+    return {
+      chartObject: null
+    }
+  },
   mounted() {
     this.createChart();
+  },
+  watch: {
+    runs: function (val, oldVal) {
+      this.createChart();
+    }
   },
   methods: {
     createChart() {
@@ -63,7 +73,7 @@ export default {
           }]
         }
       };
-      var myChart = new Chart(ctx, {
+      this.chartObject = new Chart(ctx, {
         type: 'line',
         data: {
           datasets: [{
