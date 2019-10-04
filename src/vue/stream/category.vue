@@ -1,4 +1,7 @@
 <template>
+  <section class="section">
+    <div class="container">
+
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">{{category.name}}</p>
@@ -19,6 +22,9 @@
       </Runs>
     </div>
   </div>
+
+</div>
+</section>
 </template>
 <script>
 

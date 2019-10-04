@@ -1,4 +1,5 @@
 <template>
+  <section class="section">
   <div class="container">
     <div class="columns">
       <div class="column is-half">
@@ -13,6 +14,7 @@
       </div>
     </div>
   </div>
+</section>
 </template>
 <script>
 import GameSearchResult from './game-search-result.vue'

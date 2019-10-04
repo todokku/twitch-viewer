@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import GamesApi from '../../api/Games.js'
 import RunsApi from '../../api/Runs.js'
 import LeaderboardsApi from '../../api/Leaderboards.js'
-import Utils from '../../runs/store/utils.js'
+import Utils from './utils.js'
 
 Vue.use(Vuex);
 
@@ -42,11 +42,7 @@ export const store = new Vuex.Store({
       let gameCategories =
         state.game.categories.data;
 
-      let category =
-        gameCategories.find(c => c.id == payload.data.category);
-
-      payload.data.name = category.name;
-      payload.data.runs = RunsApi.mapRunsToView(payload.data.runs, payload.data.players.data);
+      let leaderboard = Utils.transformLeaderboard(payload, gameCategories);
 
       //get all of the leaderboards except the one to be updated
       state.leaderboards = [
@@ -54,7 +50,10 @@ export const store = new Vuex.Store({
         .filter(l =>
           !(l.data.category == payload.data.category && l.data.game == payload.data.game)
         ),
-        payload];
+        leaderboard]
+        .sort(function(a, b) {
+            return a.data.name.localeCompare(b.data.name);
+        });
     }
   },
   actions: {
@@ -115,12 +114,12 @@ export const store = new Vuex.Store({
           game.categories.data;
 
         leaderboards.forEach(l => {
-          let category =
-            gameCategories.find(c => c.id == l.data.category);
-
-          l.data.name = category.name;
-          l.data.runs = RunsApi.mapRunsToView(l.data.runs, l.data.players.data);
+          l = Utils.transformLeaderboard(l, gameCategories);
         })
+
+        leaderboards.sort(function(a, b) {
+            return a.data.name.localeCompare(b.data.name);
+        });
 
         context.commit("SET_GAME", game);
         context.commit("SET_LEADERBOARDS", response);
