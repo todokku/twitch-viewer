@@ -1,14 +1,10 @@
 <template>
   <section class="section">
     <div class="container">
-      <GameInfo
-        v-bind:game="stream.game"
-      >
-      </GameInfo>
       <div class="card" style="width:320px">
         <header class="card-header">
           <p class="card-header-title">
-            itsJabo
+            {{stream.user_name}}
           </p>
         </header>
         <div class="card-image">
@@ -17,23 +13,31 @@
           </figure>
         </div>
         <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img v-bind:src="gameThumbnail" alt="game thumbnail">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-5">{{stream.game.name}}</p>
-            </div>
-          </div>
+          <p>
+            {{stream.title}}
+          </p>
+          <p>
+            {{stream.viewer_count}} viewers
+          </p>
         </div>
       </div>
+      <GameInfo
+        v-bind:game="stream.game"
+      >
+      </GameInfo>
+      <GameSearchResults
+        v-bind:search-results="gameSearchResults"
+        v-if="showGameSearchResults"
+      >
+      </GameSearchResults>
+      <Leaderboards></Leaderboards>
     </div>
   </section>
 </template>
 <script>
   import GameInfo from './game-info.vue'
+  import GameSearchResults from './game-search-results.vue'
+  import Leaderboards from './leaderboards.vue'
 
   export default {
     props: {
@@ -55,10 +59,18 @@
           .replace("{width}", "188")
           .replace("{height}", "250");
         return thumbnail;
+      },
+      gameSearchResults () {
+        return this.$store.state.game_search_results;
+      },
+      showGameSearchResults() {
+        return this.$store.state.game_search_results.length > 1;
       }
     },
     components: {
-      GameInfo
+      GameInfo,
+      GameSearchResults,
+      Leaderboards
     }
   }
 </script>
